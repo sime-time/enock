@@ -1,9 +1,9 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { env } from "$env/dynamic/private";
-import { db } from "$lib/server/db";
+import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "$env/static/private";
+import { db } from "./server/db";
 
-if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
+if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
   throw new Error("Google credentials are not set");
 }
 
@@ -13,8 +13,16 @@ export const auth = betterAuth({
   }),
   socialProviders: {
     google: {
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
+      clientId: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      accessType: "offline",
+      prompt: "select_account consent",
+      scope: [
+        "openid",
+        "email",
+        "profile",
+        "https://www.googleapis.com/auth/calendar",
+      ],
     },
   },
 });
