@@ -1,6 +1,5 @@
-<script lang="ts">
-  import AuthModal from "$lib/components/auth-modal.svelte";
-</script>
-
-<h1 class="text-3xl text-purple-600">Welcome to Enock</h1>
-<AuthModal />
+<main class="flex flex-col gap-5">
+  <h1 class="text-3xl font-semibold">Welcome to Enock</h1>
+  <a href="/dashboard" class="underline text-blue-500">Dashboard</a>
+  <a href="/login" class="underline text-blue-500">Login</a>
+</main>
