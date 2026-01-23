@@ -1,44 +1,35 @@
 <script lang="ts">
-  import CalendarIcon from "@lucide/svelte/icons/calendar";
-  import HouseIcon from "@lucide/svelte/icons/house";
-  import InboxIcon from "@lucide/svelte/icons/inbox";
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import SettingsIcon from "@lucide/svelte/icons/settings";
-  import PlusIcon from "@lucide/svelte/icons/plus";
   import * as Sidebar from "$lib/components/ui/sidebar/index";
   import Button from "$lib/components/ui/button/button.svelte";
+  import PlusIcon from "@lucide/svelte/icons/plus";
 
   // Menu items.
   const items = [
     {
-      title: "Home",
+      title: "Home is where the heart is says spongebob squarepants",
       url: "#",
-      icon: HouseIcon,
     },
     {
-      title: "Inbox",
+      title: "Inbox and the fires of mordor going off like a firecracker",
       url: "#",
-      icon: InboxIcon,
     },
     {
-      title: "Calendar",
+      title:
+        "Calendar checking google calendar to make sure it works and doesn't break",
       url: "#",
-      icon: CalendarIcon,
     },
     {
-      title: "Search",
+      title: "Search big guy spongebob big guy big guy",
       url: "#",
-      icon: SearchIcon,
     },
     {
-      title: "Settings",
+      title: "Profile settings or just settings settings?",
       url: "#",
-      icon: SettingsIcon,
     },
   ];
 </script>
 
-<Sidebar.Root>
+<Sidebar.Root class="start-15" style="--sidebar: var(--color-background);">
   <Sidebar.Header class="font-stretch-semi-expanded font-medium">
     Chat
   </Sidebar.Header>
@@ -57,7 +48,6 @@
               <Sidebar.MenuButton>
                 {#snippet child({ props })}
                   <a href={item.url} {...props}>
-                    <item.icon />
                     <span>{item.title}</span>
                   </a>
                 {/snippet}
