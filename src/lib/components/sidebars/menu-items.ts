@@ -36,7 +36,7 @@ export const footerItems = [
   },
   {
     title: "Logout",
-    url: "/login",
+    url: "/auth/logout",
     icon: LogoutIcon,
   },
 ];

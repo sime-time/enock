@@ -48,11 +48,11 @@
               href={item.url}
               size="icon-lg"
               class="rounded-full"
-              variant={page.url.pathname === item.url ? "default" : "outline"}
+              variant="outline"
             >
               <item.icon
-                class={page.url.pathname === item.url
-                  ? ""
+                class={item.title.toLowerCase() === "logout"
+                  ? "text-destructive"
                   : "text-muted-foreground"}
               />
             </Button>

@@ -10,10 +10,12 @@
 
 <Sheet.Root>
   <Sheet.Trigger>
-    <Button variant="ghost" size="icon" class="md:hidden size-10">
-      <MenuIcon class="size-6" />
-      <span class="sr-only">Open menu</span>
-    </Button>
+    {#snippet child({ props })}
+      <Button {...props} variant="ghost" size="icon" class="md:hidden size-10">
+        <MenuIcon class="size-6" />
+        <span class="sr-only">Open menu</span>
+      </Button>
+    {/snippet}
   </Sheet.Trigger>
 
   <Sheet.Content side="right" class="w-72">
@@ -36,7 +38,7 @@
         </Button>
         <Button href={logoutItem.url} variant="destructive">
           <logoutItem.icon />
-          <span>Logout</span>
+          <span>{logoutItem.title}</span>
         </Button>
       </div>
     </section>
