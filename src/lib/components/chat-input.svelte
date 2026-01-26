@@ -1,13 +1,26 @@
 <script lang="ts">
   import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
   import Button from "$lib/components/ui/button/button.svelte";
+  import { type Attachment } from "svelte/attachments";
 
   let { input = $bindable(), onsubmit, placeholder } = $props();
 
-  function autoResize(e: Event) {
-    const textArea = e.target as HTMLTextAreaElement;
-    textArea.style.height = "auto";
-    textArea.style.height = `${Math.min(textArea.scrollHeight, 192)}px`;
+  function autoResize(_input: string): Attachment {
+    return (element) => {
+      const textarea = element as HTMLTextAreaElement;
+      const resize = () => {
+        textarea.style.height = "auto";
+        textarea.style.height = `${Math.min(textarea.scrollHeight, 192)}px`;
+      };
+
+      // run immediately to handle initialization and input changes
+      resize();
+
+      // listen to input for feedback
+      textarea.addEventListener("input", resize);
+
+      return () => textarea.removeEventListener("input", resize);
+    };
   }
 
   function handleKeydown(e: KeyboardEvent) {
@@ -25,7 +38,7 @@
 >
   <textarea
     bind:value={input}
-    oninput={autoResize}
+    {@attach autoResize(input)}
     {placeholder}
     rows={1}
     onkeydown={handleKeydown}
