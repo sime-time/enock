@@ -35,7 +35,7 @@
   </Sidebar.Header>
   <Sidebar.Content>
     <Sidebar.Group>
-      <Button class="w-full">
+      <Button href="/dashboard/chat" class="w-full">
         <PlusIcon />
         <span>New Chat</span>
       </Button>

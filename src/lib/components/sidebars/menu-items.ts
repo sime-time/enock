@@ -8,11 +8,11 @@ import SunIcon from "@lucide/svelte/icons/sun";
 export const menuItems = [
   {
     title: "Chat",
-    url: "/dashboard",
+    url: "/dashboard/chat",
     icon: MessageIcon,
   },
   {
-    title: "Google Calendar",
+    title: "Calendar",
     url: "/dashboard/calendar",
     icon: CalendarIcon,
   },

@@ -29,7 +29,7 @@
         <Button variant="destructive" class="flex-1" onclick={() => logout()}>
           Logout
         </Button>
-        <Button href="/dashboard" variant="outline" class="flex-1">
+        <Button href="/dashboard/chat" variant="outline" class="flex-1">
           Cancel
         </Button>
       </Card.Content>

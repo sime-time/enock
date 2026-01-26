@@ -8,6 +8,27 @@
       "when": 1768938533775,
       "tag": "0000_eager_talos",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1769440939794,
+      "tag": "0001_tiny_mathemanic",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1769447412982,
+      "tag": "0002_futuristic_fixer",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1769447578157,
+      "tag": "0003_cooing_gertrude_yorkes",
+      "breakpoints": true
     }
   ]
 }

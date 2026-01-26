@@ -9,7 +9,7 @@ const authHandle: Handle = async ({ event, resolve }) => {
   return svelteKitHandler({ event, resolve, auth, building });
 };
 
-// user data middleware
+// allow locals to contain user data
 const sessionHandle: Handle = async ({ event, resolve }) => {
   const session = await auth.api.getSession({
     headers: event.request.headers,

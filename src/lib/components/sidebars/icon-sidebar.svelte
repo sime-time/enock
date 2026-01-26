@@ -24,10 +24,12 @@
               href={item.url}
               size="icon-lg"
               class="rounded-full"
-              variant={page.url.pathname === item.url ? "default" : "outline"}
+              variant={page.url.pathname.startsWith(item.url)
+                ? "default"
+                : "outline"}
             >
               <item.icon
-                class={page.url.pathname === item.url
+                class={page.url.pathname.startsWith(item.url)
                   ? ""
                   : "text-muted-foreground"}
               />

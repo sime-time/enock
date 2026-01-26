@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import * as Sidebar from "$lib/components/ui/sidebar/index";
   import ChatSidebar from "$lib/components/sidebars/chat-sidebar.svelte";
   import IconSidebar from "$lib/components/sidebars/icon-sidebar.svelte";
@@ -12,7 +13,11 @@
 
 <Sidebar.Provider class="md:pl-16">
   <IconSidebar />
-  <ChatSidebar />
+
+  {#if page.url.pathname.startsWith("/dashboard/chat")}
+    <ChatSidebar />
+  {/if}
+
   <main class="w-full h-screen flex flex-col">
     <nav class="flex flex-row items-center justify-between m-4">
       <Sidebar.Trigger class="size-10" />
@@ -21,10 +26,6 @@
         <Button variant="outline">
           <Settings />
           <span>Settings</span>
-        </Button>
-        <Button>
-          <Plus />
-          <span>New Chat</span>
         </Button>
       </div>
 

@@ -9,7 +9,7 @@
     try {
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/dashboard",
+        callbackURL: "/dashboard/chat",
       });
     } catch (error) {
       console.error(error);
