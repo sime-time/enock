@@ -6,16 +6,15 @@
   import MobileSidebar from "$lib/components/sidebars/mobile-sidebar.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import Settings from "@lucide/svelte/icons/settings";
-  import Plus from "@lucide/svelte/icons/plus";
 
-  let { children } = $props();
+  let { children, data } = $props();
 </script>
 
 <Sidebar.Provider class="md:pl-16">
   <IconSidebar />
 
   {#if page.url.pathname.startsWith("/dashboard/chat")}
-    <ChatSidebar />
+    <ChatSidebar chats={data.userChats} />
   {/if}
 
   <main class="w-full h-screen flex flex-col">

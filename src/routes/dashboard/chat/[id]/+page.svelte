@@ -14,17 +14,19 @@
 
   let prompt = $state("");
 
-  let chat = new Chat({
-    get transport() {
-      return new DefaultChatTransport({ api: `/api/chat/${data.chatId}` });
-    },
-    get id() {
-      return data.chatId;
-    },
-    get messages() {
-      return data.messages;
-    },
-  });
+  let chat = $derived(
+    new Chat({
+      get transport() {
+        return new DefaultChatTransport({ api: `/api/chat/${data.chatId}` });
+      },
+      get id() {
+        return data.chatId;
+      },
+      get messages() {
+        return data.messages;
+      },
+    }),
+  );
 
   onMount(async () => {
     const key = `pending-prompt-${data.chatId}`;
