@@ -46,6 +46,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "better-auth": "^1.4.16",
     "drizzle-orm": "^0.45.1",
+    "googleapis": "^171.4.0",
     "postgres": "^3.4.8",
     "runed": "^0.37.1",
     "tailwindcss": "^4.1.18"

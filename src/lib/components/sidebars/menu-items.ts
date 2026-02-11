@@ -1,7 +1,6 @@
 import CalendarIcon from "@lucide/svelte/icons/calendar-days";
 import LogoutIcon from "@lucide/svelte/icons/log-out";
 import MessageIcon from "@lucide/svelte/icons/message-circle-more";
-import NotebookIcon from "@lucide/svelte/icons/notebook-pen";
 import SettingsIcon from "@lucide/svelte/icons/settings";
 import SunIcon from "@lucide/svelte/icons/sun";
 
@@ -15,11 +14,6 @@ export const menuItems = [
     title: "Calendar",
     url: "/dashboard/calendar",
     icon: CalendarIcon,
-  },
-  {
-    title: "Edit Vision",
-    url: "/dashboard/vision",
-    icon: NotebookIcon,
   },
   {
     title: "Settings",
