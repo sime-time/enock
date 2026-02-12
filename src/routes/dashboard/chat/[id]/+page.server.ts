@@ -6,32 +6,36 @@ import { chat, message } from "$lib/server/db/schema";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params, locals }) => {
+  const chatId = params.id;
+
   const userId = locals.user?.id;
   if (!userId) {
     error(401, "Unauthorized");
   }
 
-  const chatId = params.id;
-
-  // verify chat belongs to this user
+  // Try to find existing chat
   const chatRecord = await db
     .select()
     .from(chat)
     .where(and(eq(chat.id, chatId), eq(chat.userId, userId)))
     .limit(1);
 
+  // If no chat exists, this is a new chat being created
   if (!chatRecord[0]) {
-    error(404, "Chat not found");
+    return {
+      chatId,
+      messages: [],
+    };
   }
 
-  // load messages ordered by creation time
+  // Load existing messages ordered by creation time
   const dbMessages = await db
     .select()
     .from(message)
     .where(eq(message.chatId, chatId))
     .orderBy(asc(message.createdAt));
 
-  // convert to UIMessage type for client side UI
+  // Convert to UIMessage type for client side UI
   const messages: UIMessage[] = dbMessages.map((m) => ({
     id: m.id,
     role: m.role as "user" | "assistant" | "system",

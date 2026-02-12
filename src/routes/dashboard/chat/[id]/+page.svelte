@@ -17,7 +17,7 @@
   let chat = $derived(
     new Chat({
       get transport() {
-        return new DefaultChatTransport({ api: `/api/chat/${data.chatId}` });
+        return new DefaultChatTransport({ api:`/api/chat/${data.chatId}` });
       },
       get id() {
         return data.chatId;

@@ -1,24 +1,19 @@
 <script lang="ts">
   import ChatInput from "$lib/components/chat-input.svelte";
-  import { initChat } from "./chat.remote";
   import { goto } from "$app/navigation";
 
   let prompt = $state("");
-  let error = $state("");
 
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
-    if (!prompt.trim()) {
-      error = "Message is empty";
-      return;
-    }
-    error = "";
+    if (!prompt.trim()) return;
 
-    const result = await initChat({ prompt });
+		const chatId = crypto.randomUUID();
 
-    // store prompt in sessionStorage and navigate
-    sessionStorage.setItem(`pending-prompt-${result.chatId}`, prompt);
-    goto(`/dashboard/chat/${result.chatId}`);
+    // store prompt in sessionStorage to save it across navigation
+    sessionStorage.setItem(`pending-prompt-${chatId}`, prompt.trim());
+
+    goto(`/dashboard/chat/${chatId}`);
   }
 </script>
 
@@ -35,14 +30,5 @@
       onsubmit={handleSubmit}
       placeholder="Ask me anything"
     />
-
-    <!-- Error Message -->
-    {#if error}
-      <p
-        class="absolute top-full mt-3 text-center text-destructive text-sm w-full"
-      >
-        {error}
-      </p>
-    {/if}
   </div>
 </section>

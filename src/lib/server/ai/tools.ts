@@ -17,7 +17,7 @@ export function calendarToolFactory(accessToken: string | undefined) {
 
   const createEvent = tool({
     description:
-      "Create a Google Calendar event for the user. Use ISO 8601 format for dates (e.g. 2026-12-01T10:00:00). For all-day events, use date-only format (e.g. 2026-12-01).",
+      "Create Google Calendar event for the user. Use ISO 8601 format for dates (e.g. 2026-12-01T10:00:00). For all-day events, use date-only format (e.g. 2026-12-01).",
     inputSchema: z.object({
       calendarId: z
         .string()
@@ -56,18 +56,29 @@ export function calendarToolFactory(accessToken: string | undefined) {
         },
       };
 
-      const response = await calendar.events.insert({
-        calendarId,
-        requestBody: event,
-      });
+      try {
+        const response = await calendar.events.insert({
+          calendarId,
+          requestBody: event,
+        });
 
-      return {
-        id: response.data.id,
-        htmlLink: response.data.htmlLink,
-        summary: response.data.summary,
-        start: response.data.start,
-        end: response.data.end,
-      };
+        console.log("calendar response", response);
+
+        return {
+          success: true,
+          id: response.data.id,
+          htmlLink: response.data.htmlLink,
+          summary: response.data.summary,
+          start: response.data.start,
+          end: response.data.end,
+        };
+      } catch (err) {
+        console.log("Error creating calendar event", err);
+        return {
+          success: false,
+          error: "Failed to create calendar event",
+        };
+      }
     },
   });
 
