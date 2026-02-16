@@ -1,35 +1,35 @@
 <script lang="ts">
-  import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import { type Attachment } from "svelte/attachments";
+import ArrowUpIcon from "@lucide/svelte/icons/arrow-up";
+import Button from "$lib/components/ui/button/button.svelte";
+import { type Attachment } from "svelte/attachments";
 
-  let { input = $bindable(), onsubmit, placeholder } = $props();
+let { input = $bindable(), onsubmit, placeholder } = $props();
 
-  function autoResize(_input: string): Attachment {
-    return (element) => {
-      const textarea = element as HTMLTextAreaElement;
-      const resize = () => {
-        textarea.style.height = "auto";
-        textarea.style.height = `${Math.min(textarea.scrollHeight, 192)}px`;
-      };
-
-      // run immediately to handle initialization and input changes
-      resize();
-
-      // listen to input for feedback
-      textarea.addEventListener("input", resize);
-
-      return () => textarea.removeEventListener("input", resize);
+function autoResize(_input: string): Attachment {
+  return (element) => {
+    const textarea = element as HTMLTextAreaElement;
+    const resize = () => {
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 192)}px`;
     };
-  }
 
-  function handleKeydown(e: KeyboardEvent) {
-    if (e.key === "Enter" && !e.shiftKey && input.trim() !== "") {
-      e.preventDefault();
-      const form = (e.target as HTMLTextAreaElement).closest("form");
-      form?.requestSubmit();
-    }
+    // run immediately to handle initialization and input changes
+    resize();
+
+    // listen to input for feedback
+    textarea.addEventListener("input", resize);
+
+    return () => textarea.removeEventListener("input", resize);
+  };
+}
+
+function handleKeydown(e: KeyboardEvent) {
+  if (e.key === "Enter" && !e.shiftKey && input.trim() !== "") {
+    e.preventDefault();
+    const form = (e.target as HTMLTextAreaElement).closest("form");
+    form?.requestSubmit();
   }
+}
 </script>
 
 <form

@@ -1,21 +1,21 @@
 <script lang="ts">
-  import Button from "$lib/components/ui/button/button.svelte";
-  import * as Card from "$lib/components/ui/card/index";
-  import { goto } from "$app/navigation";
-  import { resolve } from "$app/paths";
-  import { authClient } from "$lib/auth-client";
+import Button from "$lib/components/ui/button/button.svelte";
+import * as Card from "$lib/components/ui/card/index";
+import { goto } from "$app/navigation";
+import { resolve } from "$app/paths";
+import { authClient } from "$lib/auth-client";
 
-  let { data } = $props();
+let { data } = $props();
 
-  function logout() {
-    authClient.signOut({
-      fetchOptions: {
-        onSuccess: async () => {
-          goto(resolve("/auth/login"));
-        },
+function logout() {
+  authClient.signOut({
+    fetchOptions: {
+      onSuccess: async () => {
+        goto(resolve("/auth/login"));
       },
-    });
-  }
+    },
+  });
+}
 </script>
 
 <main class="flex flex-1 justify-center items-center h-screen">

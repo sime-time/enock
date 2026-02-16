@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { page } from "$app/state";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import * as Tooltip from "$lib/components/ui/tooltip/index";
-  import * as Avatar from "$lib/components/ui/avatar/index";
-  import { menuItems, footerItems } from "./menu-items";
+import { page } from "$app/state";
+import Button from "$lib/components/ui/button/button.svelte";
+import * as Tooltip from "$lib/components/ui/tooltip/index";
+import * as Avatar from "$lib/components/ui/avatar/index";
+import { menuItems, footerItems } from "./menu-items";
 </script>
 
 <!-- Desktop only: always visible, hidden on mobile -->

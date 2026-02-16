@@ -1,3 +1,4 @@
+import type { RequestEvent } from "@sveltejs/kit";
 import {
   convertToModelMessages,
   stepCountIs,
@@ -6,13 +7,14 @@ import {
 } from "ai";
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
+import { auth } from "$lib/auth";
 import { model } from "$lib/server/ai/model";
 import { advisorSystemPrompt } from "$lib/server/ai/prompts";
 import { calendarToolFactory } from "$lib/server/ai/tools";
 import { db } from "$lib/server/db/index";
-import { account, chat, message } from "$lib/server/db/schema";
+import { chat, message } from "$lib/server/db/schema";
 
-export async function POST({ request, locals, params }) {
+export async function POST({ request, locals, params }: RequestEvent) {
   // Authenticate User
   const userId = locals.user?.id;
   if (!userId) {
@@ -20,15 +22,26 @@ export async function POST({ request, locals, params }) {
   }
 
   // Validate chat UUID format
-  const chatId = params.id;
-  const chatIdSchema = z.string().uuid();
+  let chatId = params.id;
+  const chatIdSchema = z.uuid();
   const parsed = chatIdSchema.safeParse(chatId);
   if (!parsed.success) {
     return new Response("Invalid chat ID format", { status: 400 });
   }
+  chatId = parsed.data;
 
   // Get chat message history from request body
-  const { messages }: { messages: UIMessage[] } = await request.json();
+  const {
+    messages,
+    clientDateTime,
+    timezone,
+    locale,
+  }: {
+    messages: UIMessage[];
+    clientDateTime: string;
+    timezone: string;
+    locale: string;
+  } = await request.json();
 
   // Check if chat exists, if not create new chat
   const existingChat = await db
@@ -60,26 +73,30 @@ export async function POST({ request, locals, params }) {
     }
   }
 
-  // Get the google access token
-  const userAccount = await db
-    .select()
-    .from(account)
-    .where(eq(account.userId, userId))
-    .limit(1);
-
-  const accessToken = userAccount[0].accessToken ?? undefined;
+  const { accessToken } = await auth.api.getAccessToken({
+    body: {
+      providerId: "google",
+      userId: userId,
+    },
+  });
 
   const tools = calendarToolFactory(accessToken);
+
+  const system = advisorSystemPrompt({
+    dateTime: clientDateTime,
+    timezone: timezone,
+    locale: locale,
+  });
 
   const result = streamText({
     model,
     messages: await convertToModelMessages(messages),
-    system: advisorSystemPrompt,
+    system,
     tools,
     stopWhen: stepCountIs(5),
-    onStepFinish: ({ stepType, toolCalls, toolResults, text }) => {
+    onStepFinish: ({ toolCalls, toolResults, text, finishReason }) => {
       console.log("=== Step Finished ===");
-      console.log("Step type:", stepType);
+      console.log("Finish Reason", finishReason);
       if (toolCalls) {
         console.log("Tool calls:", JSON.stringify(toolCalls, null, 2));
       }
@@ -95,9 +112,9 @@ export async function POST({ request, locals, params }) {
   return result.toUIMessageStreamResponse({
     originalMessages: messages,
     onFinish: async ({ responseMessage }) => {
-      // responseMessage = the new assistant UIMessage (with all parts including tool calls)
+      // responseMessage => the new assistant UIMessage (with all parts including tool calls)
 
-      const lastUserMessage = messages.filter((m) => m.role === "user").at(-1); // last message
+      const lastUserMessage = messages.filter((m) => m.role === "user").at(-1);
 
       if (lastUserMessage) {
         const userText = lastUserMessage.parts

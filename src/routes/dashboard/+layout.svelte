@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { page } from "$app/state";
-  import * as Sidebar from "$lib/components/ui/sidebar/index";
-  import ChatSidebar from "$lib/components/sidebars/chat-sidebar.svelte";
-  import IconSidebar from "$lib/components/sidebars/icon-sidebar.svelte";
-  import MobileSidebar from "$lib/components/sidebars/mobile-sidebar.svelte";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import Settings from "@lucide/svelte/icons/settings";
+import { page } from "$app/state";
+import * as Sidebar from "$lib/components/ui/sidebar/index";
+import ChatSidebar from "$lib/components/sidebars/chat-sidebar.svelte";
+import IconSidebar from "$lib/components/sidebars/icon-sidebar.svelte";
+import MobileSidebar from "$lib/components/sidebars/mobile-sidebar.svelte";
+import Button from "$lib/components/ui/button/button.svelte";
+import Settings from "@lucide/svelte/icons/settings";
 
-  let { children, data } = $props();
+let { children, data } = $props();
 </script>
 
 <Sidebar.Provider class="md:pl-16">
