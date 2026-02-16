@@ -21,14 +21,13 @@ export async function POST({ request, locals, params }: RequestEvent) {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  // Validate chat UUID format
-  let chatId = params.id;
+  // Validate chat UUID format of url parameter
   const chatIdSchema = z.uuid();
-  const parsed = chatIdSchema.safeParse(chatId);
+  const parsed = chatIdSchema.safeParse(params.id);
   if (!parsed.success) {
     return new Response("Invalid chat ID format", { status: 400 });
   }
-  chatId = parsed.data;
+  const chatId = parsed.data;
 
   // Get chat message history from request body
   const {
@@ -73,14 +72,25 @@ export async function POST({ request, locals, params }: RequestEvent) {
     }
   }
 
-  const { accessToken } = await auth.api.getAccessToken({
+  const { accessToken, scopes } = await auth.api.getAccessToken({
     body: {
       providerId: "google",
       userId: userId,
     },
   });
 
-  const tools = calendarToolFactory(accessToken);
+  const hasCalendarScope = scopes.includes(
+    "https://www.googleapis.com/auth/calendar",
+  );
+  if (!hasCalendarScope) {
+    return new Response("MISSING_CALENDAR_SCOPE", { status: 403 });
+  }
+
+  const toolsResult = calendarToolFactory(accessToken);
+  if (toolsResult.isErr()) {
+    return new Response(toolsResult.error, { status: 403 });
+  }
+  const tools = toolsResult.value;
 
   const system = advisorSystemPrompt({
     dateTime: clientDateTime,
@@ -94,19 +104,6 @@ export async function POST({ request, locals, params }: RequestEvent) {
     system,
     tools,
     stopWhen: stepCountIs(5),
-    onStepFinish: ({ toolCalls, toolResults, text, finishReason }) => {
-      console.log("=== Step Finished ===");
-      console.log("Finish Reason", finishReason);
-      if (toolCalls) {
-        console.log("Tool calls:", JSON.stringify(toolCalls, null, 2));
-      }
-      if (toolResults) {
-        console.log("Tool results:", JSON.stringify(toolResults, null, 2));
-      }
-      if (text) {
-        console.log("Text:", text);
-      }
-    },
   });
 
   return result.toUIMessageStreamResponse({

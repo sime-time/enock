@@ -48,6 +48,7 @@
     "dayjs": "^1.11.19",
     "drizzle-orm": "^0.45.1",
     "googleapis": "^171.4.0",
+    "neverthrow": "^8.2.0",
     "postgres": "^3.4.8",
     "runed": "^0.37.1",
     "tailwindcss": "^4.1.18"

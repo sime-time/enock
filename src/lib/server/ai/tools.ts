@@ -1,5 +1,6 @@
-import { tool } from "ai";
+import { type Tool, tool } from "ai";
 import { google } from "googleapis";
+import { err, ok, type Result } from "neverthrow";
 import { z } from "zod";
 
 // Google Calendar API Tools
@@ -9,9 +10,15 @@ function getCalendarClient(accessToken: string) {
   return google.calendar({ version: "v3", auth });
 }
 
-export function calendarToolFactory(accessToken: string | undefined) {
+type CalendarTools = {
+  createEvent: Tool;
+};
+
+export function calendarToolFactory(
+  accessToken: string | undefined,
+): Result<CalendarTools, string> {
   if (!accessToken) {
-    throw new Error("Access token is not found");
+    return err("Access token is not found");
   }
   const calendar = getCalendarClient(accessToken);
 
@@ -56,33 +63,25 @@ export function calendarToolFactory(accessToken: string | undefined) {
         },
       };
 
-      try {
-        const response = await calendar.events.insert({
-          calendarId,
-          requestBody: event,
-        });
+      const response = await calendar.events.insert({
+        calendarId,
+        requestBody: event,
+      });
 
-        console.log("calendar response", response);
+      console.log("calendar response", response);
 
-        return {
-          success: true,
-          id: response.data.id,
-          htmlLink: response.data.htmlLink,
-          summary: response.data.summary,
-          start: response.data.start,
-          end: response.data.end,
-        };
-      } catch (err) {
-        console.log("Error creating calendar event", err);
-        return {
-          success: false,
-          error: "Failed to create calendar event",
-        };
-      }
+      return {
+        success: true,
+        id: response.data.id,
+        htmlLink: response.data.htmlLink,
+        summary: response.data.summary,
+        start: response.data.start,
+        end: response.data.end,
+      };
     },
   });
 
-  return { createEvent };
+  return ok({ createEvent });
 }
 
 // listEvents
