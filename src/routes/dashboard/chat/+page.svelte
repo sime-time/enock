@@ -1,20 +1,26 @@
 <script lang="ts">
-  import ChatInput from "$lib/components/chat-input.svelte";
-  import { goto } from "$app/navigation";
+	import ChatInput from "$lib/components/chat-input.svelte";
+	import { goto } from "$app/navigation";
+	import { createTitleFromPrompt } from "$lib/create-title";
+	import { setPendingTitle } from "$lib/state/pending-title.svelte";
 
-  let prompt = $state("");
+	let prompt = $state("");
 
-  async function handleSubmit(e: SubmitEvent) {
-    e.preventDefault();
-    if (!prompt.trim()) return;
+	async function handleSubmit(e: SubmitEvent) {
+		e.preventDefault();
+		if (!prompt.trim()) return;
 
-    const chatId = crypto.randomUUID();
+		const chatId = crypto.randomUUID();
 
-    // store prompt in sessionStorage to save it across navigation
-    sessionStorage.setItem(`pending-prompt-${chatId}`, prompt.trim());
+		// create and save a title for optimistic update
+		const title = createTitleFromPrompt(prompt.trim());
+		setPendingTitle(title);
 
-    goto(`/dashboard/chat/${chatId}`);
-  }
+		// store prompt in sessionStorage to save it across navigation
+		sessionStorage.setItem(`pending-prompt-${chatId}`, prompt.trim());
+
+		goto(`/dashboard/chat/${chatId}`);
+	}
 </script>
 
 <section class="flex flex-col items-center justify-center h-132 gap-6 px-4">

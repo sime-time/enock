@@ -8,6 +8,7 @@ import {
 import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { auth } from "$lib/auth";
+import { createTitleFromMessages } from "$lib/create-title";
 import { model } from "$lib/server/ai/model";
 import { advisorSystemPrompt } from "$lib/server/ai/prompts";
 import { calendarToolFactory } from "$lib/server/ai/tools";
@@ -50,14 +51,7 @@ export async function POST({ request, locals, params }: RequestEvent) {
     .limit(1);
 
   if (!existingChat[0]) {
-    // Extract title from first user message
-    const firstUserMessage = messages.find((m) => m.role === "user");
-    const title =
-      firstUserMessage?.parts
-        ?.filter((p) => p.type === "text")
-        .map((p) => p.text)
-        .join("")
-        .substring(0, 40) || "New Chat";
+    const title = createTitleFromMessages(messages);
 
     // Create chat in DB
     try {
