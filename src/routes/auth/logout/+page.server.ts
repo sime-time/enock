@@ -1,7 +1,6 @@
 import type { PageServerLoad } from "./$types";
 
+// return user data to logout page
 export const load: PageServerLoad = async ({ locals }) => {
-  // return user data to logout page
-  // to check if user is already logged out
   return locals;
 };
