@@ -1,14 +1,14 @@
 <script lang="ts" module>
-import { cn, type WithElementRef } from "$lib/utils";
-import type { HTMLAttributes } from "svelte/elements";
-import type { Snippet } from "svelte";
+  import { cn, type WithElementRef } from "$lib/utils";
+  import type { HTMLAttributes } from "svelte/elements";
+  import type { Snippet } from "svelte";
 
-export interface ConversationProps
-  extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
-  children?: Snippet;
-  initial?: ScrollBehavior;
-  resize?: ScrollBehavior;
-}
+  export interface ConversationProps
+    extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
+    children?: Snippet;
+    initial?: ScrollBehavior;
+    resize?: ScrollBehavior;
+  }
 </script>
 
 <script lang="ts">

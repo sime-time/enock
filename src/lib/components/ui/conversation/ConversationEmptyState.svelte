@@ -1,15 +1,15 @@
 <script lang="ts" module>
-import { cn, type WithElementRef } from "$lib/utils";
-import type { HTMLAttributes } from "svelte/elements";
-import type { Snippet } from "svelte";
+  import { cn, type WithElementRef } from "$lib/utils";
+  import type { HTMLAttributes } from "svelte/elements";
+  import type { Snippet } from "svelte";
 
-export interface ConversationEmptyStateProps
-  extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
-  title?: string;
-  description?: string;
-  icon?: Snippet;
-  children?: Snippet;
-}
+  export interface ConversationEmptyStateProps
+    extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
+    title?: string;
+    description?: string;
+    icon?: Snippet;
+    children?: Snippet;
+  }
 </script>
 
 <script lang="ts">
