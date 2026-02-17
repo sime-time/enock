@@ -86,11 +86,10 @@ export async function POST({ request, locals, params }: RequestEvent) {
     return new Response("MISSING_CALENDAR_SCOPE", { status: 403 });
   }
 
-  const toolsResult = calendarToolFactory(accessToken);
-  if (toolsResult.isErr()) {
-    return new Response(toolsResult.error, { status: 403 });
+  const [tools, err] = calendarToolFactory(accessToken);
+  if (err) {
+    return new Response(err.reason, { status: 403 });
   }
-  const tools = toolsResult.value;
 
   const system = advisorSystemPrompt({
     dateTime: clientDateTime,

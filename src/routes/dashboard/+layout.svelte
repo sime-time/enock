@@ -28,9 +28,7 @@ let { children, data } = $props();
         </Button>
       </div>
 
-      <div class="md:hidden">
-        <MobileSidebar />
-      </div>
+      <div class="md:hidden"><MobileSidebar /></div>
     </nav>
     {@render children()}
   </main>

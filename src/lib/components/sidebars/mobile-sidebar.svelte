@@ -26,18 +26,18 @@ const logoutItem = footerItems[1];
       <div class="flex flex-col gap-3 mx-2">
         {#each menuItems as item}
           <Button href={item.url} variant="outline">
-            <item.icon />
+            <item .icon />
             <span>{item.title}</span>
           </Button>
         {/each}
       </div>
       <div class="flex flex-col gap-3 mx-2">
         <Button href={darkModeItem.url} variant="default">
-          <darkModeItem.icon />
+          <darkModeItem .icon />
           <span>{darkModeItem.title}</span>
         </Button>
         <Button href={logoutItem.url} variant="destructive">
-          <logoutItem.icon />
+          <logoutItem .icon />
           <span>{logoutItem.title}</span>
         </Button>
       </div>

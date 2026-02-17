@@ -28,16 +28,15 @@ import { menuItems, footerItems } from "./menu-items";
                 ? "default"
                 : "outline"}
             >
-              <item.icon
+              <item
+                .icon
                 class={page.url.pathname.startsWith(item.url)
                   ? ""
                   : "text-muted-foreground"}
               />
             </Button>
           </Tooltip.Trigger>
-          <Tooltip.Content side="right">
-            <p>{item.title}</p>
-          </Tooltip.Content>
+          <Tooltip.Content side="right"> <p>{item.title}</p> </Tooltip.Content>
         </Tooltip.Root>
       {/each}
     </div>
@@ -52,16 +51,15 @@ import { menuItems, footerItems } from "./menu-items";
               class="rounded-full"
               variant="outline"
             >
-              <item.icon
+              <item
+                .icon
                 class={item.title.toLowerCase() === "logout"
                   ? "text-destructive"
                   : "text-muted-foreground"}
               />
             </Button>
           </Tooltip.Trigger>
-          <Tooltip.Content side="right">
-            <p>{item.title}</p>
-          </Tooltip.Content>
+          <Tooltip.Content side="right"> <p>{item.title}</p> </Tooltip.Content>
         </Tooltip.Root>
       {/each}
     </div>

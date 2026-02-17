@@ -1,7 +1,7 @@
-import { type Tool, tool } from "ai";
+import { tool } from "ai";
 import { google } from "googleapis";
-import { err, ok, type Result } from "neverthrow";
 import { z } from "zod";
+import { err, ok } from "$lib/result";
 
 // Google Calendar API Tools
 function getCalendarClient(accessToken: string) {
@@ -10,15 +10,9 @@ function getCalendarClient(accessToken: string) {
   return google.calendar({ version: "v3", auth });
 }
 
-type CalendarTools = {
-  createEvent: Tool;
-};
-
-export function calendarToolFactory(
-  accessToken: string | undefined,
-): Result<CalendarTools, string> {
+export function calendarToolFactory(accessToken?: string | null) {
   if (!accessToken) {
-    return err("Access token is not found");
+    return err({ reason: "Access token is not found" });
   }
   const calendar = getCalendarClient(accessToken);
 
