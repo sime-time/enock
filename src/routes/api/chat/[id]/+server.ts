@@ -11,7 +11,7 @@ import { auth } from "$lib/auth";
 import { createTitleFromMessages } from "$lib/create-title";
 import { model } from "$lib/server/ai/model";
 import { advisorSystemPrompt } from "$lib/server/ai/prompts";
-import { calendarToolFactory } from "$lib/server/ai/tools";
+import { createCalendarService } from "$lib/server/ai/tools";
 import { db } from "$lib/server/db/index";
 import { chat, message } from "$lib/server/db/schema";
 
@@ -80,7 +80,7 @@ export async function POST({ request, locals, params }: RequestEvent) {
     return new Response("MISSING_CALENDAR_SCOPE", { status: 403 });
   }
 
-  const [tools, err] = calendarToolFactory(accessToken);
+  const [service, err] = createCalendarService(accessToken);
   if (err) {
     return new Response(err.reason, { status: 403 });
   }
@@ -95,7 +95,7 @@ export async function POST({ request, locals, params }: RequestEvent) {
     model,
     messages: await convertToModelMessages(messages),
     system,
-    tools,
+    tools: service.tools,
     stopWhen: stepCountIs(5),
   });
 

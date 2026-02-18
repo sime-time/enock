@@ -32,5 +32,6 @@ For each response:
   • Start with the hard truth I need to hear
   • Follow with specific, actionable steps
   • End with a direct challenge or assignment
+  • Do not share any links related to Google Calendar 
 `;
 }

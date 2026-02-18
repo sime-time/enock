@@ -3,85 +3,80 @@ import { google } from "googleapis";
 import { z } from "zod";
 import { err, ok } from "$lib/result";
 
-// Google Calendar API Tools
-function getCalendarClient(accessToken: string) {
-  const auth = new google.auth.OAuth2();
-  auth.setCredentials({ access_token: accessToken });
-  return google.calendar({ version: "v3", auth });
+// Schemas
+export const CreateEventSchema = z.object({
+  calendarId: z.string().default("primary").describe("Calendar ID Label"),
+  summary: z.string().describe("Event title"),
+  startDateTime: z.string().describe("Start time in ISO 8601"),
+  endDateTime: z.string().describe("End time in ISO 8601"),
+  timeZone: z.string().default("UTC").describe("User's timezone"),
+});
+
+// Types
+export type CreateEventType = z.infer<typeof CreateEventSchema>;
+
+export interface CalendarEvent {
+  id?: string | null;
+  htmlLink?: string | null;
+  summary?: string | null;
+  start?: { dateTime?: string | null; timeZone?: string | null };
+  end?: { dateTime?: string | null; timeZone?: string | null };
 }
 
-export function calendarToolFactory(accessToken?: string | null) {
-  if (!accessToken) {
-    return err({ reason: "Access token is not found" });
+// Calendar API Service
+export function createCalendarService(accessToken: string) {
+  // Google Calendar API Client
+  const auth = new google.auth.OAuth2();
+  try {
+    auth.setCredentials({ access_token: accessToken });
+  } catch {
+    return err({ reason: "Failed to set Google auth credentials" });
   }
-  const calendar = getCalendarClient(accessToken);
+  const calendar = google.calendar({ version: "v3", auth });
 
-  const createEvent = tool({
-    description:
-      "Create Google Calendar event for the user. Use ISO 8601 format for dates (e.g. 2026-12-01T10:00:00). For all-day events, use date-only format (e.g. 2026-12-01).",
-    inputSchema: z.object({
-      calendarId: z
-        .string()
-        .default("primary")
-        .describe("Calendar ID - use 'primary' for the user's main calendar"),
-      summary: z.string().describe("Event title").optional(),
-      description: z.string().describe("Event description").optional(),
-      location: z
-        .string()
-        .describe("Event location or video call link")
-        .optional(),
-      startDateTime: z.string().describe("Start time in ISO 8601"),
-      endDateTime: z.string().describe("End time in ISO 8601"),
-      timeZone: z.string().default("UTC").describe("User's timezone"),
-    }),
-    execute: async ({
-      calendarId,
-      summary,
-      description,
-      location,
-      startDateTime,
-      endDateTime,
-      timeZone,
-    }) => {
-      const event = {
-        summary,
-        description,
-        location,
+  async function createEvent(input: CreateEventType): Promise<CalendarEvent> {
+    const response = await calendar.events.insert({
+      calendarId: input.calendarId ?? "primary",
+      requestBody: {
+        summary: input.summary,
         start: {
-          dateTime: startDateTime,
-          timeZone,
+          dateTime: input.startDateTime,
+          timeZone: input.timeZone ?? "UTC",
         },
         end: {
-          dateTime: endDateTime,
-          timeZone,
+          dateTime: input.endDateTime,
+          timeZone: input.timeZone ?? "UTC",
         },
-      };
+      },
+    });
 
-      const response = await calendar.events.insert({
-        calendarId,
-        requestBody: event,
-      });
+    return {
+      id: response.data.id,
+      htmlLink: response.data.htmlLink,
+      summary: response.data.summary,
+      start: response.data.start,
+      end: response.data.end,
+    };
+  }
 
-      console.log("calendar response", response);
-
-      return {
-        success: true,
-        id: response.data.id,
-        htmlLink: response.data.htmlLink,
-        summary: response.data.summary,
-        start: response.data.start,
-        end: response.data.end,
-      };
+  return ok({
+    // Methods (usable anywhere)
+    createEvent,
+    // Tools (usable by AI only)
+    tools: {
+      createEvent: tool({
+        description:
+          "Create Google Calendar event for the user. Use ISO 8601 format for date times (e.g. 2026-12-01T10:00:00).",
+        inputSchema: CreateEventSchema,
+        execute: createEvent,
+      }),
     },
   });
-
-  return ok({ createEvent });
 }
 
 // listEvents
 // updateEvent
 // deleteEvent
 // getFreeBusy
-// updateTimezone
 // createCalendar
 // getCalendarList
