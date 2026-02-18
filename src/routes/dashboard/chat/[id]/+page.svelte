@@ -13,10 +13,7 @@
 	import { DefaultChatTransport } from "ai";
 	import { onMount } from "svelte";
 	import { authClient } from "$lib/auth-client";
-	import dayjs from "dayjs";
-	import timezone from "dayjs/plugin/timezone";
-
-	dayjs.extend(timezone);
+	import { dayjs } from "$lib/dayjs";
 
 	let { data } = $props(); // from +page.server.ts
 
@@ -30,7 +27,6 @@
 					api: `/api/chat/${data.chatId}`,
 					body: () => {
 						return {
-							clientDateTime: dayjs().format("YYYY-MM-DDTHH:mm:ss"),
 							timezone: dayjs.tz.guess(),
 							locale: navigator.language,
 						};

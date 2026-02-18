@@ -9,6 +9,7 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { auth } from "$lib/auth";
 import { createTitleFromMessages } from "$lib/create-title";
+import { dayjs } from "$lib/dayjs";
 import { model } from "$lib/server/ai/model";
 import { advisorSystemPrompt } from "$lib/server/ai/prompts";
 import { createCalendarService } from "$lib/server/ai/tools";
@@ -33,12 +34,10 @@ export async function POST({ request, locals, params }: RequestEvent) {
   // Get chat message history from request body
   const {
     messages,
-    clientDateTime,
     timezone,
     locale,
   }: {
     messages: UIMessage[];
-    clientDateTime: string;
     timezone: string;
     locale: string;
   } = await request.json();
@@ -85,8 +84,10 @@ export async function POST({ request, locals, params }: RequestEvent) {
     return new Response(err.reason, { status: 403 });
   }
 
+  const userCurrentTime = dayjs().tz(timezone).format("YYYY-MM-DDTHH:mm:ss");
+
   const system = advisorSystemPrompt({
-    dateTime: clientDateTime,
+    dateTime: userCurrentTime,
     timezone: timezone,
     locale: locale,
   });
