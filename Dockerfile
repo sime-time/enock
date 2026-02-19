@@ -30,11 +30,11 @@ RUN bun install --frozen-lockfile --production
 COPY --from=builder /app/build ./build
 
 # Expose port
-EXPOSE 3000
+EXPOSE 5137 
 
 # Set environment variables
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=5137
 
 # Start the application
 CMD ["bun", "run", "start"]
