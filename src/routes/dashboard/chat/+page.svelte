@@ -23,7 +23,9 @@
 	}
 </script>
 
-<section class="flex flex-col items-center justify-center h-132 gap-6 px-4">
+<section
+	class="flex flex-col items-center justify-center h-1/2 md:h-132 gap-6 px-4"
+>
 	<!-- Heading -->
 	<h1 class="text-2xl font-stretch-semi-expanded font-medium text-foreground">
 		Where should we begin?
