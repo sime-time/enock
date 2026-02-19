@@ -18,11 +18,7 @@
 		{/snippet}
 	</Sheet.Trigger>
 
-	<Sheet.Content
-		side="right"
-		class="w-full inset-0 border-none"
-		style="padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);"
-	>
+	<Sheet.Content side="right" class="w-72" hideOverlay={true}>
 		<Sheet.Header class="font-stretch-semi-expanded font-medium -m-2">
 			Menu
 		</Sheet.Header>
