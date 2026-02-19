@@ -2,10 +2,18 @@ import { tool } from "ai";
 import { google } from "googleapis";
 import type { z } from "zod";
 import { err, ok } from "$lib/result";
-import { CreateEventSchema, GetEventListSchema } from "$lib/server/ai/schema";
+import {
+  CreateEventSchema,
+  DeleteEventSchema,
+  GetEventListSchema,
+  UpdateEventSchema,
+} from "$lib/server/ai/schema";
 
 export type GetEventListParams = z.infer<typeof GetEventListSchema>;
+export type DeleteEventParams = z.infer<typeof DeleteEventSchema>;
+export type UpdateEventParams = z.infer<typeof UpdateEventSchema>;
 export type CreateEventParams = z.infer<typeof CreateEventSchema>;
+
 export type CalendarEvent = {
   id?: string | null;
   htmlLink?: string | null;
@@ -45,6 +53,47 @@ export function createCalendarService(accessToken: string) {
     }));
   }
 
+  async function deleteEvent(params: DeleteEventParams) {
+    try {
+      await calendar.events.delete({
+        calendarId: params.calendarId ?? "primary",
+        eventId: params.eventId,
+      });
+    } catch {
+      return { success: false };
+    }
+
+    return { success: true };
+  }
+
+  async function updateEvent(
+    params: UpdateEventParams,
+  ): Promise<CalendarEvent> {
+    const response = await calendar.events.update({
+      calendarId: params.calendarId ?? "primary",
+      eventId: params.eventId,
+      requestBody: {
+        summary: params.summary,
+        start: {
+          dateTime: params.startDateTime,
+          timeZone: params.timeZone ?? "UTC",
+        },
+        end: {
+          dateTime: params.endDateTime,
+          timeZone: params.timeZone ?? "UTC",
+        },
+      },
+    });
+
+    return {
+      id: response.data.id,
+      htmlLink: response.data.htmlLink,
+      summary: response.data.summary,
+      start: response.data.start,
+      end: response.data.end,
+    };
+  }
+
   async function createEvent(
     params: CreateEventParams,
   ): Promise<CalendarEvent> {
@@ -75,6 +124,7 @@ export function createCalendarService(accessToken: string) {
   return ok({
     // Methods (usable anywhere)
     getEventList,
+    updateEvent,
     createEvent,
     // Tools (usable by AI only)
     tools: {
@@ -82,6 +132,17 @@ export function createCalendarService(accessToken: string) {
         description: "Return a list of the user's next Google Calendar events.",
         inputSchema: GetEventListSchema,
         execute: getEventList,
+      }),
+      updateEvent: tool({
+        description:
+          "Update a Google Calendar event for the user. Use ISO 8601 format for date times (e.g. 2026-12-01T10:00:00).",
+        inputSchema: UpdateEventSchema,
+        execute: updateEvent,
+      }),
+      deleteEvent: tool({
+        description: "Delete a Google Calendar event for the user.",
+        inputSchema: DeleteEventSchema,
+        execute: deleteEvent,
       }),
       createEvent: tool({
         description:
@@ -93,8 +154,6 @@ export function createCalendarService(accessToken: string) {
   });
 }
 
-// updateEvent
-// deleteEvent
 // getFreeBusy
 // createCalendar
 // getCalendarList

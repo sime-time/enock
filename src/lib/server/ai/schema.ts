@@ -1,5 +1,19 @@
 import { z } from "zod";
 
+export const DeleteEventSchema = z.object({
+  calendarId: z.string().describe("Calendar ID Label").default("primary"),
+  eventId: z.string().nonoptional(),
+});
+
+export const UpdateEventSchema = z.object({
+  calendarId: z.string().describe("Calendar ID Label").default("primary"),
+  eventId: z.string().nonoptional(),
+  summary: z.string().describe("Event title"),
+  startDateTime: z.string().describe("Start time in ISO 8601"),
+  endDateTime: z.string().describe("End time in ISO 8601"),
+  timeZone: z.string().default("UTC").describe("User's timezone"),
+});
+
 export const GetEventListSchema = z.object({
   calendarId: z
     .string()
