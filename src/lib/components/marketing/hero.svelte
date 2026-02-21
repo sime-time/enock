@@ -1,36 +1,64 @@
 <script lang="ts">
 	import { Badge } from "$lib/components/ui/badge";
 	import { Button } from "$lib/components/ui/button";
-	import TaskMockup from "$lib/components/marketing/task-mockup.svelte";
 </script>
 
 <section
-	class="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40"
+	class="relative isolate min-h-screen overflow-hidden bg-background pt-16"
 >
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
-			<!-- Left: Copy -->
+	<div
+		class="pointer-events-none absolute inset-y-0 right-0 hidden w-[58vw] lg:block"
+	>
+		<picture>
+			<source srcset="/hero.avif" type="image/avif" />
+			<img
+				src="/hero.webp"
+				alt="Back-facing Greco-Roman statue"
+				class="h-full w-full object-cover object-[center_24%]"
+			/>
+		</picture>
+	</div>
+
+	<div
+		class="pointer-events-none absolute inset-0 hidden bg-linear-to-r from-background via-background/75 to-background/20 lg:block"
+	></div>
+
+	<div class="relative h-[42vh] min-h-70 w-full overflow-hidden lg:hidden">
+		<picture>
+			<source srcset="/hero.avif" type="image/avif" />
+			<img
+				src="/hero.webp"
+				alt="Back-facing Greco-Roman statue"
+				class="h-full w-full object-cover object-[center_18%]"
+			/>
+		</picture>
+		<div
+			class="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-background/40 to-background"
+		></div>
+	</div>
+
+	<div class="relative z-10 mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-24">
+		<div
+			class="pt-10 lg:flex lg:min-h-[calc(100vh-4rem)] lg:items-center lg:pt-0"
+		>
 			<div class="max-w-2xl">
-				<!-- Badge -->
 				<Badge
-					variant="default"
-					class="mb-8 gap-2 bg-primary/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
+					variant="outline"
+					class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
 				>
 					<span class="size-2 rounded-full bg-primary"></span>
-					AI Executive Advisor
+					AI Strategic Advisor
 				</Badge>
 
-				<!-- Headline -->
 				<h1
-					class="font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-6xl"
+					class="font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl"
 				>
 					<span>Your goals mean</span>
-					<i class="opacity-50">nothing</i>
+					<i class="opacity-60">nothing</i>
 					<span>without</span>
 					<span class="text-primary">execution.</span>
 				</h1>
 
-				<!-- Subtext -->
 				<p
 					class="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground"
 				>
@@ -38,7 +66,6 @@
 					whether you actually follow through.
 				</p>
 
-				<!-- Clarity line -->
 				<div class="mt-4 flex items-center gap-2.5">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +81,6 @@
 					</p>
 				</div>
 
-				<!-- CTAs -->
 				<div class="mt-10 flex flex-wrap items-center gap-4">
 					<Button
 						href="/auth/login"
@@ -84,9 +110,6 @@
 					</Button>
 				</div>
 			</div>
-
-			<!-- Right: App mockup -->
-			<TaskMockup />
 		</div>
 	</div>
 </section>
