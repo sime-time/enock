@@ -1,11 +1,11 @@
 <script lang="ts">
-	import * as Sheet from "$lib/components/ui/sheet/index";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import MenuIcon from "@lucide/svelte/icons/menu";
-	import { menuItems, footerItems } from "./menu-items";
+  import * as Sheet from "$lib/components/ui/sheet/index";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import MenuIcon from "@lucide/svelte/icons/menu";
+  import { menuItems, footerItems } from "./menu-items";
 
-	const darkModeItem = footerItems[0];
-	const logoutItem = footerItems[1];
+  const darkModeItem = footerItems[0];
+  const logoutItem = footerItems[1];
 </script>
 
 <Sheet.Root>

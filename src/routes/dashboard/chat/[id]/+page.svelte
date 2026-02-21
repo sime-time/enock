@@ -1,88 +1,88 @@
 <script lang="ts">
-	import {
-		Conversation,
-		ConversationContent,
-		ConversationEmptyState,
-		ConversationScrollButton,
-	} from "$lib/components/ui/conversation/index";
-	import { Chat } from "@ai-sdk/svelte";
-	import ChatInput from "$lib/components/chat-input.svelte";
-	import TypingIndicator from "$lib/components/typing-indicator.svelte";
-	import * as Dialog from "$lib/components/ui/dialog";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import { DefaultChatTransport } from "ai";
-	import { onMount } from "svelte";
-	import { authClient } from "$lib/auth-client";
-	import { dayjs } from "$lib/dayjs";
+  import {
+    Conversation,
+    ConversationContent,
+    ConversationEmptyState,
+    ConversationScrollButton,
+  } from "$lib/components/chat/conversation/index";
+  import { Chat } from "@ai-sdk/svelte";
+  import ChatInput from "$lib/components/chat/chat-input.svelte";
+  import TypingIndicator from "$lib/components/chat/typing-indicator.svelte";
+  import * as Dialog from "$lib/components/ui/dialog";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import { DefaultChatTransport } from "ai";
+  import { onMount } from "svelte";
+  import { authClient } from "$lib/auth-client";
+  import { dayjs } from "$lib/dayjs";
 
-	let { data } = $props(); // from +page.server.ts
+  let { data } = $props(); // from +page.server.ts
 
-	let prompt = $state("");
-	let requestCalendarAccess = $state(false);
+  let prompt = $state("");
+  let requestCalendarAccess = $state(false);
 
-	let chat = $derived(
-		new Chat({
-			get transport() {
-				return new DefaultChatTransport({
-					api: `/api/chat/${data.chatId}`,
-					body: () => {
-						return {
-							timezone: dayjs.tz.guess(),
-							locale: navigator.language,
-						};
-					},
-				});
-			},
-			get id() {
-				return data.chatId;
-			},
-			get messages() {
-				return data.messages;
-			},
-			onError: (error) => {
-				if (error.message === "MISSING_CALENDAR_SCOPE") {
-					requestCalendarAccess = true;
-				}
-			},
-		}),
-	);
+  let chat = $derived(
+    new Chat({
+      get transport() {
+        return new DefaultChatTransport({
+          api: `/api/chat/${data.chatId}`,
+          body: () => {
+            return {
+              timezone: dayjs.tz.guess(),
+              locale: navigator.language,
+            };
+          },
+        });
+      },
+      get id() {
+        return data.chatId;
+      },
+      get messages() {
+        return data.messages;
+      },
+      onError: (error) => {
+        if (error.message === "MISSING_CALENDAR_SCOPE") {
+          requestCalendarAccess = true;
+        }
+      },
+    }),
+  );
 
-	async function enableCalendarAccess() {
-		// Store the last user message that failed
-		const lastUserMessage = chat.messages
-			.filter((m) => m.role === "user")
-			.at(-1);
-		if (lastUserMessage) {
-			const text = lastUserMessage.parts
-				.filter((p) => p.type === "text")
-				.map((p) => p.text)
-				.join("");
-			sessionStorage.setItem(`pending-prompt-${data.chatId}`, text);
-		}
+  async function enableCalendarAccess() {
+    // Store the last user message that failed
+    const lastUserMessage = chat.messages
+      .filter((m) => m.role === "user")
+      .at(-1);
+    if (lastUserMessage) {
+      const text = lastUserMessage.parts
+        .filter((p) => p.type === "text")
+        .map((p) => p.text)
+        .join("");
+      sessionStorage.setItem(`pending-prompt-${data.chatId}`, text);
+    }
 
-		await authClient.linkSocial({
-			provider: "google",
-			scopes: ["https://www.googleapis.com/auth/calendar"],
-			callbackURL: `/dashboard/chat/${data.chatId}`,
-		});
-	}
+    await authClient.linkSocial({
+      provider: "google",
+      scopes: ["https://www.googleapis.com/auth/calendar"],
+      callbackURL: `/dashboard/chat/${data.chatId}`,
+    });
+  }
 
-	onMount(async () => {
-		const key = `pending-prompt-${data.chatId}`;
-		const pendingPrompt = sessionStorage.getItem(key);
+  onMount(async () => {
+    const key = `pending-prompt-${data.chatId}`;
+    const pendingPrompt = sessionStorage.getItem(key);
 
-		if (pendingPrompt) {
-			sessionStorage.removeItem(key);
-			chat.sendMessage({ text: pendingPrompt });
-		}
-	});
+    if (pendingPrompt) {
+      sessionStorage.removeItem(key);
+      chat.sendMessage({ text: pendingPrompt });
+    }
+  });
 
-	function handleSubmit(event: SubmitEvent) {
-		event.preventDefault();
-		if (!prompt.trim()) return;
-		chat.sendMessage({ text: prompt.trim() });
-		prompt = "";
-	}
+  function handleSubmit(event: SubmitEvent) {
+    event.preventDefault();
+    if (!prompt.trim()) return;
+    chat.sendMessage({ text: prompt.trim() });
+    prompt = "";
+  }
 </script>
 
 <section class="flex flex-col flex-1 min-h-0">

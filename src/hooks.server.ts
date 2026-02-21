@@ -19,4 +19,13 @@ const sessionHandle: Handle = async ({ event, resolve }) => {
   return response;
 };
 
-export const handle = sequence(authHandle, sessionHandle);
+const fontHandle: Handle = async ({ event, resolve }) => {
+  const response = await resolve(event, {
+    preload: ({ type }) => {
+      return type === "font" || type === "js" || type === "css";
+    },
+  });
+  return response;
+};
+
+export const handle = sequence(authHandle, sessionHandle, fontHandle);

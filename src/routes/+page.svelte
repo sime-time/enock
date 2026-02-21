@@ -1,6 +1,11 @@
-<main class="flex flex-col gap-5">
-  <h1 class="text-3xl font-semibold">Welcome to Enock</h1>
-  <a href="/dashboard/chat" class="underline text-blue-500">Chat</a>
-  <a href="/auth/login" class="underline text-blue-500">Login</a>
-  <a href="/auth/logout" class="underline text-blue-500">Logout</a>
-</main>
+<script lang="ts">
+  import Navbar from "$lib/components/marketing/navbar.svelte";
+  import Hero from "$lib/components/marketing/hero.svelte";
+</script>
+
+<div class="dark bg-background text-foreground">
+  <Navbar />
+  <main class="min-h-screen">
+    <Hero />
+  </main>
+</div>

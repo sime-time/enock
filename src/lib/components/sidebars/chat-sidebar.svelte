@@ -1,12 +1,12 @@
 <script lang="ts">
-	import * as Sidebar from "$lib/components/ui/sidebar/index";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import PlusIcon from "@lucide/svelte/icons/plus";
-	import { goto } from "$app/navigation";
-	import { page } from "$app/state";
-	import { getPendingTitle } from "$lib/state/pending-title.svelte";
+  import * as Sidebar from "$lib/components/ui/sidebar/index";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import PlusIcon from "@lucide/svelte/icons/plus";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/state";
+  import { getPendingTitle } from "$lib/state/pending-title.svelte";
 
-	let { chats } = $props();
+  let { chats } = $props();
 </script>
 
 <Sidebar.Root class="start-15" style="--sidebar: var(--color-background);">
