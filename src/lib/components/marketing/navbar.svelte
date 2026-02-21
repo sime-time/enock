@@ -39,7 +39,7 @@
 
 	{#if !isMobile.current}
 		<Nav.List
-			class="text-muted-foreground gap-8 border rounded-full px-6 bg-background dark:bg-input/30 dark:border-input shadow-xs"
+			class="text-muted-foreground gap-8 border rounded-full px-6 bg-input/60 backdrop-blur-md dark:border-input shadow-xs"
 		>
 			{#each navItems as item}
 				<Nav.Item>
