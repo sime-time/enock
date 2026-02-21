@@ -26,7 +26,7 @@
 </script>
 
 <Nav.Root
-	class="fixed top-0 z-10 flex min-w-full items-center justify-between p-3 px-6"
+	class="fixed top-0 z-10 flex mx-auto min-w-full items-center justify-between p-3 px-6"
 >
 	<Nav.List>
 		<Nav.Item>
@@ -36,19 +36,20 @@
 			</a>
 		</Nav.Item>
 	</Nav.List>
+
 	{#if !isMobile.current}
 		<Nav.List
 			class="text-muted-foreground gap-8 border rounded-full px-6 bg-background dark:bg-input/30 dark:border-input shadow-xs"
 		>
-			<Nav.Item>
-				<Nav.Link class="hover:bg-transparent cursor-pointer">Method</Nav.Link>
-			</Nav.Item>
-			<Nav.Item>
-				<Nav.Link class="hover:bg-transparent cursor-pointer">Pricing</Nav.Link>
-			</Nav.Item>
-			<Nav.Item>
-				<Nav.Link class="hover:bg-transparent cursor-pointer">FAQ</Nav.Link>
-			</Nav.Item>
+			{#each navItems as item}
+				<Nav.Item>
+					<Nav.Link
+						class="cursor-pointer hover:bg-transparent focus:bg-transparent"
+					>
+						{item.title}
+					</Nav.Link>
+				</Nav.Item>
+			{/each}
 		</Nav.List>
 		<Button href="/auth/login">Sign In</Button>
 	{:else}
