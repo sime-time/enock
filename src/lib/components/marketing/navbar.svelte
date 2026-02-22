@@ -1,28 +1,28 @@
 <script lang="ts">
-	import * as Nav from "$lib/components/ui/navigation-menu/index";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import MenuIcon from "@lucide/svelte/icons/menu";
-	import * as Sheet from "$lib/components/ui/sheet/index";
-	import logo from "$lib/assets/enock-logo.svg";
+  import * as Nav from "$lib/components/ui/navigation-menu/index";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import MenuIcon from "@lucide/svelte/icons/menu";
+  import * as Sheet from "$lib/components/ui/sheet/index";
+  import logo from "$lib/assets/enock-logo.svg";
 
-	import { IsMobile } from "$lib/hooks/is-mobile.svelte";
+  import { IsMobile } from "$lib/hooks/is-mobile.svelte";
 
-	const isMobile = new IsMobile();
+  const isMobile = new IsMobile();
 
-	const navItems = [
-		{
-			title: "Method",
-			href: "#",
-		},
-		{
-			title: "Pricing",
-			href: "#",
-		},
-		{
-			title: "FAQ",
-			href: "#",
-		},
-	];
+  const navItems = [
+    {
+      title: "Method",
+      href: "#",
+    },
+    {
+      title: "Pricing",
+      href: "#",
+    },
+    {
+      title: "FAQ",
+      href: "#",
+    },
+  ];
 </script>
 
 <Nav.Root

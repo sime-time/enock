@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { Badge } from "$lib/components/ui/badge";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import { Badge } from "$lib/components/ui/badge";
+  import Button from "$lib/components/ui/button/button.svelte";
 
-	const lines = [
-		"You don't fail because you lack goals.",
-		"You fail because your goals are never scheduled.",
-		"Ideas don't create progress.",
-		"Time blocks do.",
-		"Most people plan in their head.",
-		"Enock plans in their calendar.",
-	];
+  const lines = [
+    "You don't fail because you lack goals.",
+    "You fail because your goals are never scheduled.",
+    "Ideas don't create progress.",
+    "Time blocks do.",
+    "Most people plan in their head.",
+    "Enock plans in their calendar.",
+  ];
 </script>
 
 <section
@@ -61,7 +61,7 @@
 				>
 					<span class="text-muted-foreground">Ambition</span> without structure
 					becomes
-					<i class="text-destructive">frustration</i>
+					<i class="text-destructive">frustration.</i>
 				</h2>
 
 				<div class="mt-12 space-y-4 sm:space-y-5">
