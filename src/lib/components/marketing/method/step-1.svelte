@@ -1,46 +1,46 @@
 <script lang="ts">
-	import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
-	import CheckIcon from "@lucide/svelte/icons/check";
-	import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
-	import HeartIcon from "@lucide/svelte/icons/heart";
-	import SparklesIcon from "@lucide/svelte/icons/sparkles";
-	import TargetIcon from "@lucide/svelte/icons/target";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import { Input } from "$lib/components/ui/input/index";
+  import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
+  import CheckIcon from "@lucide/svelte/icons/check";
+  import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
+  import HeartIcon from "@lucide/svelte/icons/heart";
+  import SparklesIcon from "@lucide/svelte/icons/sparkles";
+  import TargetIcon from "@lucide/svelte/icons/target";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import { Input } from "$lib/components/ui/input/index";
 
-	let selectedCard = $state(0);
+  let selectedCard = $state(0);
 
-	const focusCards = [
-		{
-			id: 0,
-			title: "Fitness",
-			description: "Health & vitality",
-			icon: DumbbellIcon,
-			placeholder: "Get a 6 pack and run a 5k marathon...",
-		},
-		{
-			id: 1,
-			title: "Career",
-			description: "Wealth & business",
-			icon: BriefcaseBusinessIcon,
-			placeholder: "Earn $10k per month...",
-		},
-		{
-			id: 2,
-			title: "Discipline",
-			description: "Habits & routine",
-			icon: TargetIcon,
-			placeholder: "Wake up early...",
-		},
-		{
-			id: 3,
-			title: "Relationships",
-			description: "Family & friends",
-			icon: HeartIcon,
-			placeholder: "Get a girlfriend...",
-		},
-	];
+  const focusCards = [
+    {
+      id: 0,
+      title: "Fitness",
+      description: "Health & vitality",
+      icon: DumbbellIcon,
+      placeholder: "Get a 6 pack and run a 5k marathon...",
+    },
+    {
+      id: 1,
+      title: "Career",
+      description: "Wealth & business",
+      icon: BriefcaseBusinessIcon,
+      placeholder: "Earn $10k per month...",
+    },
+    {
+      id: 2,
+      title: "Discipline",
+      description: "Habits & routine",
+      icon: TargetIcon,
+      placeholder: "Wake up early...",
+    },
+    {
+      id: 3,
+      title: "Relationships",
+      description: "Family & friends",
+      icon: HeartIcon,
+      placeholder: "Get a girlfriend...",
+    },
+  ];
 </script>
 
 <section id="solution-step-1" class="relative overflow-hidden py-16 sm:py-20">

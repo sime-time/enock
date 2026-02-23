@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Badge } from "$lib/components/ui/badge";
-	import Step1 from "$lib/components/marketing/method/step-1.svelte";
+  import { Badge } from "$lib/components/ui/badge";
+  import Step1 from "$lib/components/marketing/method/step-1.svelte";
+  import Step2 from "$lib/components/marketing/method/step-2.svelte";
 </script>
 
 <section id="solution" class="relative bg-background py-24 sm:py-32">
@@ -27,4 +28,5 @@
 	</div>
 
 	<Step1 />
+	<Step2 />
 </section>
