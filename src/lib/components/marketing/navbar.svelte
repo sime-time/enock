@@ -1,34 +1,36 @@
 <script lang="ts">
-  import * as Nav from "$lib/components/ui/navigation-menu/index";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import MenuIcon from "@lucide/svelte/icons/menu";
-  import * as Sheet from "$lib/components/ui/sheet/index";
-  import logo from "$lib/assets/enock-logo.svg";
+	import * as Nav from "$lib/components/ui/navigation-menu/index";
+	import Button from "$lib/components/ui/button/button.svelte";
+	import MenuIcon from "@lucide/svelte/icons/menu";
+	import * as Sheet from "$lib/components/ui/sheet/index";
+	import logo from "$lib/assets/enock-logo.svg";
 
-  import { IsMobile } from "$lib/hooks/is-mobile.svelte";
+	import { IsMobile } from "$lib/hooks/is-mobile.svelte";
 
-  const isMobile = new IsMobile();
+	const isMobile = new IsMobile();
 
-  const navItems = [
-    {
-      title: "Method",
-      href: "#",
-    },
-    {
-      title: "Pricing",
-      href: "#",
-    },
-    {
-      title: "FAQ",
-      href: "#",
-    },
-  ];
+	const navItems = [
+		{
+			title: "Method",
+			href: "#",
+		},
+		{
+			title: "Pricing",
+			href: "#",
+		},
+		{
+			title: "FAQ",
+			href: "#",
+		},
+	];
 </script>
 
 <Nav.Root
 	class="fixed top-0 z-10 flex mx-auto min-w-full items-center justify-between p-3 px-6"
 >
-	<Nav.List>
+	<Nav.List
+		class="rounded-lg p-1 pr-3 bg-background backdrop-blur-md dark:border-input shadow-xs"
+	>
 		<Nav.Item>
 			<a href="/" class="flex items-center gap-1.5">
 				<img src={logo} alt="Enock logo" class="h-7 w-7" />
