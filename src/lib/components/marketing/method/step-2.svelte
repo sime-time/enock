@@ -13,36 +13,35 @@
 		"1 PM",
 		"2 PM",
 		"3 PM",
-		"4 PM",
 	];
 
 	const events = [
 		{
-			title: "Morning Routine",
-			time: "8:30 - 9:30 AM",
-			top: 0,
-			height: 63,
-			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
-		},
-		{
-			title: "Deep Work",
-			time: "10:00 - 12:00 PM",
-			top: 68,
-			height: 106,
+			title: "Morning Walk",
+			time: "8:00 - 9:15 AM",
+			top: 1,
+			height: 50,
 			classes: "border-l-green-300 bg-green-400/18 text-green-100",
 		},
 		{
-			title: "Eat Lunch",
-			time: "1:00 - 2:30 PM",
-			top: 179,
-			height: 113,
+			title: "Deep Work",
+			time: "9:15- 12:30 PM",
+			top: 53,
+			height: 127,
+			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+		},
+		{
+			title: "Cook & Eat Lunch",
+			time: "12:30 - 1:30 PM",
+			top: 183,
+			height: 40,
 			classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
 		},
 		{
-			title: "Workout",
-			time: "3:00 - 4:00 PM",
-			top: 297,
-			height: 69,
+			title: "Gym",
+			time: "1:30 - 3:00 PM",
+			top: 226,
+			height: 54,
 			classes: "border-l-red-400 bg-red-500/20 text-red-100",
 		},
 	];
@@ -90,13 +89,13 @@
 
 					{#each events as event}
 						<div
-							class={`absolute right-3 left-2 rounded-md border border-border/40 border-l-4 px-4 py-3 ${event.classes}`}
+							class={`absolute right-3 left-2 rounded-md border border-border/40 border-l-4 px-4 py-1 ${event.classes}`}
 							style={`top:${event.top}px;height:${event.height}px`}
 						>
-							<p class="text-base leading-tight font-semibold">
+							<p class="text-sm leading-tight">
 								{event.title}
 							</p>
-							<p class="mt-1 text-xs text-current/80">{event.time}</p>
+							<p class="text-xs text-current/80">{event.time}</p>
 						</div>
 					{/each}
 				</div>
