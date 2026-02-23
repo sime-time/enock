@@ -5,7 +5,6 @@
 	import Button from "$lib/components/ui/button/button.svelte";
 
 	const timeLabels = [
-		"8 AM",
 		"9 AM",
 		"10 AM",
 		"11 AM",
@@ -18,31 +17,38 @@
 	const events = [
 		{
 			title: "Morning Walk",
-			time: "8:00 - 9:15 AM",
+			time: "8:00 - 9:00 AM",
 			top: 1,
-			height: 50,
+			height: 39,
 			classes: "border-l-green-300 bg-green-400/18 text-green-100",
 		},
 		{
 			title: "Deep Work",
 			time: "9:15- 12:30 PM",
-			top: 53,
-			height: 127,
+			top: 43,
+			height: 117,
 			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
 		},
 		{
 			title: "Cook & Eat Lunch",
-			time: "12:30 - 1:30 PM",
-			top: 183,
-			height: 40,
+			time: "12:00 - 1:00 PM",
+			top: 164,
+			height: 37,
 			classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
 		},
 		{
 			title: "Gym",
-			time: "1:30 - 3:00 PM",
-			top: 226,
-			height: 54,
+			time: "1:00 - 2:30 PM",
+			top: 205,
+			height: 60,
 			classes: "border-l-red-400 bg-red-500/20 text-red-100",
+		},
+		{
+			title: "Marketing",
+			time: "2:30 - 3:30 PM",
+			top: 269,
+			height: 58,
+			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
 		},
 	];
 </script>
@@ -56,7 +62,7 @@
 		class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
 	>
 		<div
-			class="overflow-hidden rounded-xl border border-border/70 bg-background/75"
+			class="order-2 lg:order-1 overflow-hidden rounded-xl border border-border/70 bg-background/75"
 		>
 			<div class="flex items-start justify-between px-4 pt-4 pb-3">
 				<div class="flex items-center gap-3">
@@ -70,16 +76,18 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-[72px_1fr] border-t border-border/60">
-				<div class="border-r border-border/60 bg-background/60 px-3 py-2">
+			<div class="grid grid-cols-[62px_1fr] border-t border-border/60">
+				<div class="border-r border-border/60 bg-background/60 px-3 py-8.5">
 					{#each timeLabels as label}
-						<div class="h-10 text-xs font-medium text-muted-foreground/80">
+						<div
+							class="h-10 text-xs font-medium text-muted-foreground/80 text-end"
+						>
 							{label}
 						</div>
 					{/each}
 				</div>
 
-				<div class="relative h-90 bg-background/35">
+				<div class="relative bg-background/35">
 					{#each timeLabels as _, i}
 						<div
 							class="absolute right-0 left-0 border-t border-border/35"
@@ -89,7 +97,7 @@
 
 					{#each events as event}
 						<div
-							class={`absolute right-3 left-2 rounded-md border border-border/40 border-l-4 px-4 py-1 ${event.classes}`}
+							class={`absolute right-3 left-2 rounded-md border border-border/40 border-l-4 px-3 py-0.5 ${event.classes}`}
 							style={`top:${event.top}px;height:${event.height}px`}
 						>
 							<p class="text-sm leading-tight">
@@ -101,7 +109,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="max-w-xl">
+		<div class="order-1 lg:order-2 max-w-xl">
 			<p
 				class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
 			>
