@@ -1,46 +1,50 @@
 <script lang="ts">
-  import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
-  import CheckIcon from "@lucide/svelte/icons/check";
-  import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
-  import HeartIcon from "@lucide/svelte/icons/heart";
-  import SparklesIcon from "@lucide/svelte/icons/sparkles";
-  import TargetIcon from "@lucide/svelte/icons/target";
-  import ArrowRight from "@lucide/svelte/icons/arrow-right";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import { Input } from "$lib/components/ui/input/index";
+	import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
+	import CheckIcon from "@lucide/svelte/icons/check";
+	import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
+	import HeartIcon from "@lucide/svelte/icons/heart";
+	import MicIcon from "@lucide/svelte/icons/mic";
+	import TargetIcon from "@lucide/svelte/icons/target";
+	import ArrowRight from "@lucide/svelte/icons/arrow-right";
+	import Button from "$lib/components/ui/button/button.svelte";
 
-  let selectedCard = $state(0);
+	let selected = $state([0]);
+	let focusSuccessAnswers = $state<Record<number, string>>({});
 
-  const focusCards = [
-    {
-      id: 0,
-      title: "Fitness",
-      description: "Health & vitality",
-      icon: DumbbellIcon,
-      placeholder: "Get a 6 pack and run a 5k marathon...",
-    },
-    {
-      id: 1,
-      title: "Career",
-      description: "Wealth & business",
-      icon: BriefcaseBusinessIcon,
-      placeholder: "Earn $10k per month...",
-    },
-    {
-      id: 2,
-      title: "Discipline",
-      description: "Habits & routine",
-      icon: TargetIcon,
-      placeholder: "Wake up early...",
-    },
-    {
-      id: 3,
-      title: "Relationships",
-      description: "Family & friends",
-      icon: HeartIcon,
-      placeholder: "Get a girlfriend...",
-    },
-  ];
+	const focusCards = [
+		{
+			id: 0,
+			title: "Fitness",
+			description: "Health & vitality",
+			icon: DumbbellIcon,
+			placeholder: "Have 6 pack abs...",
+		},
+		{
+			id: 1,
+			title: "Career",
+			description: "Wealth & business",
+			icon: BriefcaseBusinessIcon,
+			placeholder: "Earn $10k per month...",
+		},
+		{
+			id: 2,
+			title: "Discipline",
+			description: "Habits & routine",
+			icon: TargetIcon,
+			placeholder: "Wake up early...",
+		},
+		{
+			id: 3,
+			title: "Relationships",
+			description: "Family & friends",
+			icon: HeartIcon,
+			placeholder: "Have a girlfriend...",
+		},
+	];
+
+	let selectedFocusCards = $derived(
+		focusCards.filter((card) => selected.includes(card.id)),
+	);
 </script>
 
 <section id="solution-step-1" class="relative overflow-hidden py-16 sm:py-20">
@@ -83,14 +87,18 @@
 			class="rounded-2xl border border-border/70 bg-card/40 p-4 shadow-2xl backdrop-blur-sm sm:p-5"
 		>
 			<p class="mb-3 text-base font-semibold text-foreground">
-				Select Focus Area
+				Select Focus Area(s)
 			</p>
 
 			<div class="grid gap-3 sm:grid-cols-2">
 				{#each focusCards as card (card.title)}
 					<button
-						onclick={() => (selectedCard = card.id)}
-						class={card.id === selectedCard
+						onclick={() => {
+							selected = selected.includes(card.id)
+								? selected.filter((id) => id !== card.id)
+								: [...selected, card.id];
+						}}
+						class={selected.includes(card.id)
 							? "rounded-xl border border-primary bg-primary/10 p-3"
 							: "rounded-xl border border-border/70 bg-background/40 p-3"}
 					>
@@ -110,7 +118,7 @@
 									</p>
 								</div>
 							</div>
-							{#if card.id === selectedCard}
+							{#if selected.includes(card.id)}
 								<div
 									class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
 								>
@@ -122,21 +130,53 @@
 				{/each}
 			</div>
 
-			<div
-				class="mt-6 mb-3 flex items-center gap-2 text-base font-semibold text-foreground"
-			>
-				<SparklesIcon class="size-4 text-primary" />
-				<p>What does success look like in {focusCards[selectedCard].title}?</p>
-			</div>
+			<div class="mt-4 rounded-xl border border-border/70 bg-background/55 p-4">
+				<p class="text-sm font-semibold text-foreground">
+					Define success for each selected area
+				</p>
+				<p class="mt-1 text-xs text-muted-foreground">
+					Be specific and measurable so your goals are clear.
+				</p>
 
-			<div class="flex w-full items-center gap-2">
-				<Input type="text" placeholder={focusCards[selectedCard].placeholder} />
-				<Button type="submit"><ArrowRight /></Button>
+				{#if selectedFocusCards.length === 0}
+					<p
+						class="mt-3 rounded-lg border border-dashed border-border/70 px-3 py-2 text-sm text-muted-foreground"
+					>
+						Pick at least one focus area to define success.
+					</p>
+				{:else}
+					<div class="mt-3 space-y-3">
+						{#each selectedFocusCards as card (card.id)}
+							<div class="space-y-2">
+								<label
+									class="block text-sm font-medium text-foreground"
+									for={`focus-success-${card.id}`}
+								>
+									What does success mean to you in {card.title}?
+								</label>
+								<div
+									class="w-full rounded-3xl border border-border bg-input/30 p-1 flex items-center justify-between gap-2"
+								>
+									<input
+										id={`focus-success-${card.id}`}
+										type="text"
+										class="w-full bg-transparent px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+										placeholder={card.placeholder}
+										bind:value={focusSuccessAnswers[card.id]}
+									/>
+									<Button
+										type="button"
+										size="icon"
+										class="rounded-full shrink-0"
+									>
+										<MicIcon class="size-4" />
+									</Button>
+								</div>
+							</div>
+						{/each}
+					</div>
+				{/if}
 			</div>
-
-			<p class="mt-3 text-sm text-muted-foreground">
-				Be specific. Enock will use this to generate your weekly targets.
-			</p>
 		</div>
 	</div>
 </section>
