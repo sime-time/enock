@@ -26,18 +26,21 @@
       <div class="flex flex-col gap-3 mx-2">
         {#each menuItems as item}
           <Button href={item.url} variant="outline">
-            <item .icon />
+            <!-- biome-ignore format: svelte dotted component name -->
+            <item.icon />
             <span>{item.title}</span>
           </Button>
         {/each}
       </div>
       <div class="flex flex-col gap-3 mx-2">
         <Button href={darkModeItem.url} variant="default">
-          <darkModeItem .icon />
+          <!-- biome-ignore format: svelte dotted component name -->
+          <darkModeItem.icon />
           <span>{darkModeItem.title}</span>
         </Button>
         <Button href={logoutItem.url} variant="destructive">
-          <logoutItem .icon />
+          <!-- biome-ignore format: svelte dotted component name -->
+          <logoutItem.icon />
           <span>{logoutItem.title}</span>
         </Button>
       </div>

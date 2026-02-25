@@ -28,8 +28,8 @@
 								? "default"
 								: "outline"}
             >
-              <item
-                .icon
+              <!-- biome-ignore format: svelte dotted component name -->
+              <item.icon
                 class={page.url.pathname.startsWith(item.url)
 									? ""
 									: "text-muted-foreground"}
@@ -51,8 +51,8 @@
               class="rounded-full"
               variant="outline"
             >
-              <item
-                .icon
+              <!-- biome-ignore format: svelte dotted component name -->
+              <item.icon
                 class={item.title.toLowerCase() === "logout"
 									? "text-destructive"
 									: "text-muted-foreground"}
