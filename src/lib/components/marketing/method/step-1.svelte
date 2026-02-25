@@ -1,50 +1,50 @@
 <script lang="ts">
-	import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
-	import CheckIcon from "@lucide/svelte/icons/check";
-	import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
-	import HeartIcon from "@lucide/svelte/icons/heart";
-	import MicIcon from "@lucide/svelte/icons/mic";
-	import TargetIcon from "@lucide/svelte/icons/target";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
+  import CheckIcon from "@lucide/svelte/icons/check";
+  import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
+  import HeartIcon from "@lucide/svelte/icons/heart";
+  import MicIcon from "@lucide/svelte/icons/mic";
+  import TargetIcon from "@lucide/svelte/icons/target";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import Button from "$lib/components/ui/button/button.svelte";
 
-	let selected = $state([0]);
-	let focusSuccessAnswers = $state<Record<number, string>>({});
+  let selected = $state([0]);
+  let focusSuccessAnswers = $state<Record<number, string>>({});
 
-	const focusCards = [
-		{
-			id: 0,
-			title: "Fitness",
-			description: "Health & vitality",
-			icon: DumbbellIcon,
-			placeholder: "Have 6 pack abs...",
-		},
-		{
-			id: 1,
-			title: "Career",
-			description: "Wealth & business",
-			icon: BriefcaseBusinessIcon,
-			placeholder: "Earn $10k per month...",
-		},
-		{
-			id: 2,
-			title: "Discipline",
-			description: "Habits & routine",
-			icon: TargetIcon,
-			placeholder: "Wake up early...",
-		},
-		{
-			id: 3,
-			title: "Relationships",
-			description: "Family & friends",
-			icon: HeartIcon,
-			placeholder: "Have a girlfriend...",
-		},
-	];
+  const focusCards = [
+    {
+      id: 0,
+      title: "Fitness",
+      description: "Health & vitality",
+      icon: DumbbellIcon,
+      placeholder: "Have 6 pack abs...",
+    },
+    {
+      id: 1,
+      title: "Career",
+      description: "Wealth & business",
+      icon: BriefcaseBusinessIcon,
+      placeholder: "Earn $10k per month...",
+    },
+    {
+      id: 2,
+      title: "Discipline",
+      description: "Habits & routine",
+      icon: TargetIcon,
+      placeholder: "Wake up early...",
+    },
+    {
+      id: 3,
+      title: "Relationships",
+      description: "Family & friends",
+      icon: HeartIcon,
+      placeholder: "Have a girlfriend...",
+    },
+  ];
 
-	let selectedFocusCards = $derived(
-		focusCards.filter((card) => selected.includes(card.id)),
-	);
+  let selectedFocusCards = $derived(
+    focusCards.filter((card) => selected.includes(card.id)),
+  );
 </script>
 
 <section id="solution-step-1" class="relative overflow-hidden py-16 sm:py-20">

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import ArrowUp from "@lucide/svelte/icons/arrow-up";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import ArrowUp from "@lucide/svelte/icons/arrow-up";
+  import Button from "$lib/components/ui/button/button.svelte";
 </script>
 
 <section id="solution-step-3" class="relative overflow-hidden py-16 sm:py-20">
