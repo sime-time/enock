@@ -9,8 +9,8 @@
 </script>
 
 <AccordionPrimitive.Root
-	bind:ref
-	bind:value={value as never}
-	data-slot="accordion"
-	{...restProps}
+  bind:ref
+  bind:value={value as never}
+  data-slot="accordion"
+  {...restProps}
 />

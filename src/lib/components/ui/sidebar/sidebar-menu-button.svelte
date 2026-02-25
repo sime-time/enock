@@ -32,49 +32,49 @@
 </script>
 
 <script lang="ts">
-import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-import {
-  cn,
-  type WithElementRef,
-  type WithoutChildrenOrChild,
-} from "$lib/utils.js";
-import { mergeProps } from "bits-ui";
-import type { ComponentProps, Snippet } from "svelte";
-import type { HTMLAttributes } from "svelte/elements";
-import { useSidebar } from "./context.svelte.js";
+  import { mergeProps } from "bits-ui";
+  import type { ComponentProps, Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
+  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import {
+    cn,
+    type WithElementRef,
+    type WithoutChildrenOrChild,
+  } from "$lib/utils.js";
+  import { useSidebar } from "./context.svelte.js";
 
-let {
-  ref = $bindable(null),
-  class: className,
-  children,
-  child,
-  variant = "default",
-  size = "default",
-  isActive = false,
-  tooltipContent,
-  tooltipContentProps,
-  ...restProps
-}: WithElementRef<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
-  isActive?: boolean;
-  variant?: SidebarMenuButtonVariant;
-  size?: SidebarMenuButtonSize;
-  tooltipContent?: Snippet | string;
-  tooltipContentProps?: WithoutChildrenOrChild<
-    ComponentProps<typeof Tooltip.Content>
-  >;
-  child?: Snippet<[{ props: Record<string, unknown> }]>;
-} = $props();
+  let {
+    ref = $bindable(null),
+    class: className,
+    children,
+    child,
+    variant = "default",
+    size = "default",
+    isActive = false,
+    tooltipContent,
+    tooltipContentProps,
+    ...restProps
+  }: WithElementRef<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
+    isActive?: boolean;
+    variant?: SidebarMenuButtonVariant;
+    size?: SidebarMenuButtonSize;
+    tooltipContent?: Snippet | string;
+    tooltipContentProps?: WithoutChildrenOrChild<
+      ComponentProps<typeof Tooltip.Content>
+    >;
+    child?: Snippet<[{ props: Record<string, unknown> }]>;
+  } = $props();
 
-const sidebar = useSidebar();
+  const sidebar = useSidebar();
 
-const buttonProps = $derived({
-  class: cn(sidebarMenuButtonVariants({ variant, size }), className),
-  "data-slot": "sidebar-menu-button",
-  "data-sidebar": "menu-button",
-  "data-size": size,
-  "data-active": isActive,
-  ...restProps,
-});
+  const buttonProps = $derived({
+    class: cn(sidebarMenuButtonVariants({ variant, size }), className),
+    "data-slot": "sidebar-menu-button",
+    "data-sidebar": "menu-button",
+    "data-size": size,
+    "data-active": isActive,
+    ...restProps,
+  });
 </script>
 
 {#snippet Button({ props }: { props?: Record<string, unknown> })}
@@ -82,7 +82,9 @@ const buttonProps = $derived({
   {#if child}
     {@render child({ props: mergedProps })}
   {:else}
-    <button bind:this={ref} {...mergedProps}>{@render children?.()}</button>
+    <button type="button" bind:this={ref} {...mergedProps}>
+      {@render children?.()}
+    </button>
   {/if}
 {/snippet}
 

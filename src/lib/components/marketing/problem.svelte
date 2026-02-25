@@ -1,28 +1,29 @@
 <script lang="ts">
-import BellOffIcon from "@lucide/svelte/icons/bell-off";
-import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
-import TimerResetIcon from "@lucide/svelte/icons/timer-reset";
-import TrophyIcon from "@lucide/svelte/icons/trophy";
-import { Badge } from "$lib/components/ui/badge";
+  import BellOffIcon from "@lucide/svelte/icons/bell-off";
+  import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
+  import TimerResetIcon from "@lucide/svelte/icons/timer-reset";
+  import TrophyIcon from "@lucide/svelte/icons/trophy";
+  import { Badge } from "$lib/components/ui/badge";
 
-const questions = [
-  {
-    sentence: "Are you proud of how you spent this week?",
-    icon: CalendarClockIcon,
-  },
-  {
-    sentence: "If you repeated this week for 3 years, where would you end up?",
-    icon: TimerResetIcon,
-  },
-  {
-    sentence: "Does your calendar reflect your ambition?",
-    icon: TrophyIcon,
-  },
-  {
-    sentence: "Or your distractions?",
-    icon: BellOffIcon,
-  },
-];
+  const questions = [
+    {
+      sentence: "Are you proud of how you spent this week?",
+      icon: CalendarClockIcon,
+    },
+    {
+      sentence:
+        "If you repeated this week for 3 years, where would you end up?",
+      icon: TimerResetIcon,
+    },
+    {
+      sentence: "Does your calendar reflect your ambition?",
+      icon: TrophyIcon,
+    },
+    {
+      sentence: "Or your distractions?",
+      icon: BellOffIcon,
+    },
+  ];
 </script>
 
 <section

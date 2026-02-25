@@ -1,35 +1,35 @@
 <script lang="ts" module>
-  import { cn } from "$lib/utils";
   import type { ButtonProps } from "$lib/components/ui/button/index.js";
+  import { cn } from "$lib/utils";
 
   export interface ConversationScrollButtonProps extends ButtonProps {}
 </script>
 
 <script lang="ts">
-import { Button } from "$lib/components/ui/button";
-import { ArrowDown } from "@lucide/svelte";
-import { getStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
-import { fade, fly, scale } from "svelte/transition";
-import { backOut } from "svelte/easing";
+  import { ArrowDown } from "@lucide/svelte";
+  import { backOut } from "svelte/easing";
+  import { fade, fly, scale } from "svelte/transition";
+  import { Button } from "$lib/components/ui/button";
+  import { getStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
 
-let {
-  class: className,
-  onclick,
-  ...restProps
-}: ConversationScrollButtonProps = $props();
+  let {
+    class: className,
+    onclick,
+    ...restProps
+  }: ConversationScrollButtonProps = $props();
 
-const context = getStickToBottomContext();
+  const context = getStickToBottomContext();
 
-const handleScrollToBottom = (event: MouseEvent) => {
-  context.scrollToBottom();
-  if (onclick) {
-    onclick(
-      event as MouseEvent & {
-        currentTarget: EventTarget & HTMLButtonElement;
-      },
-    );
-  }
-};
+  const handleScrollToBottom = (event: MouseEvent) => {
+    context.scrollToBottom();
+    if (onclick) {
+      onclick(
+        event as MouseEvent & {
+          currentTarget: EventTarget & HTMLButtonElement;
+        },
+      );
+    }
+  };
 </script>
 
 {#if !context.isAtBottom}

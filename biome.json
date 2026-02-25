@@ -34,7 +34,10 @@
     }
   },
   "html": {
-    "formatter": { "enabled": true },
+    "formatter": {
+      "enabled": true,
+      "indentScriptAndStyle": true
+    },
     "experimentalFullSupportEnabled": true
   },
   "css": {

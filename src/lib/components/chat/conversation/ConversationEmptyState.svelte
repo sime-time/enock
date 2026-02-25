@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import { cn, type WithElementRef } from "$lib/utils";
-  import type { HTMLAttributes } from "svelte/elements";
   import type { Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
+  import { cn, type WithElementRef } from "$lib/utils";
 
   export interface ConversationEmptyStateProps
     extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
@@ -13,15 +13,15 @@
 </script>
 
 <script lang="ts">
-let {
-  class: className,
-  title = "No messages yet",
-  description = "Start a conversation to see messages here",
-  icon,
-  children,
-  ref = $bindable(null),
-  ...restProps
-}: ConversationEmptyStateProps = $props();
+  let {
+    class: className,
+    title = "No messages yet",
+    description = "Start a conversation to see messages here",
+    icon,
+    children,
+    ref = $bindable(null),
+    ...restProps
+  }: ConversationEmptyStateProps = $props();
 </script>
 
 <div

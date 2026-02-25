@@ -30,6 +30,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-4 text-primary"
+              aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -62,6 +63,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-4 text-primary"
+              aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -94,6 +96,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-4 text-primary"
+              aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -126,6 +129,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-4 text-destructive"
+              aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -159,6 +163,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="size-4 text-muted-foreground"
+              aria-hidden="true"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -188,6 +193,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="size-4 text-primary"
+        aria-hidden="true"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

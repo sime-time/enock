@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import { cn, type WithElementRef } from "$lib/utils";
-  import type { HTMLAttributes } from "svelte/elements";
   import type { Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
+  import { cn, type WithElementRef } from "$lib/utils";
 
   export interface ConversationContentProps
     extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
@@ -10,29 +10,29 @@
 </script>
 
 <script lang="ts">
-import { getStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
-import { watch } from "runed";
+  import { watch } from "runed";
+  import { getStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
 
-let {
-  class: className,
-  children,
-  ref = $bindable(null),
-  ...restProps
-}: ConversationContentProps = $props();
+  let {
+    class: className,
+    children,
+    ref = $bindable(null),
+    ...restProps
+  }: ConversationContentProps = $props();
 
-const context = getStickToBottomContext();
-let element: HTMLDivElement;
+  const context = getStickToBottomContext();
+  let element: HTMLDivElement;
 
-watch(
-  () => element,
-  () => {
-    if (element) {
-      context.setElement(element);
-      // Initial scroll to bottom
-      context.scrollToBottom("smooth");
-    }
-  },
-);
+  watch(
+    () => element,
+    () => {
+      if (element) {
+        context.setElement(element);
+        // Initial scroll to bottom
+        context.scrollToBottom("smooth");
+      }
+    },
+  );
 </script>
 
 <div

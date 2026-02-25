@@ -1,7 +1,7 @@
 <script lang="ts">
-import ArrowRight from "@lucide/svelte/icons/arrow-right";
-import { Badge } from "$lib/components/ui/badge";
-import { Button } from "$lib/components/ui/button";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import { Badge } from "$lib/components/ui/badge";
+  import { Button } from "$lib/components/ui/button";
 </script>
 
 <section

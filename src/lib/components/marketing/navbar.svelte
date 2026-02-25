@@ -1,42 +1,42 @@
 <script lang="ts">
-import MenuIcon from "@lucide/svelte/icons/menu";
-import logo from "$lib/assets/enock-logo.svg";
-import Button from "$lib/components/ui/button/button.svelte";
-import * as Nav from "$lib/components/ui/navigation-menu/index";
-import * as Sheet from "$lib/components/ui/sheet/index";
+  import MenuIcon from "@lucide/svelte/icons/menu";
+  import logo from "$lib/assets/enock-logo.svg";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import * as Nav from "$lib/components/ui/navigation-menu/index";
+  import * as Sheet from "$lib/components/ui/sheet/index";
 
-import { IsMobile } from "$lib/hooks/is-mobile.svelte";
+  import { IsMobile } from "$lib/hooks/is-mobile.svelte";
 
-const isMobile = new IsMobile();
+  const isMobile = new IsMobile();
 
-const navItems = [
-  {
-    title: "Method",
-    href: "#method",
-  },
-  {
-    title: "Pricing",
-    href: "#pricing",
-  },
-  {
-    title: "FAQ",
-    href: "#faq",
-  },
-];
+  const navItems = [
+    {
+      title: "Method",
+      href: "#method",
+    },
+    {
+      title: "Pricing",
+      href: "#pricing",
+    },
+    {
+      title: "FAQ",
+      href: "#faq",
+    },
+  ];
 
-function scrollToSection(href: string, event?: MouseEvent): void {
-  if (!href.startsWith("#")) return;
+  function scrollToSection(href: string, event?: MouseEvent): void {
+    if (!href.startsWith("#")) return;
 
-  event?.preventDefault();
+    event?.preventDefault();
 
-  const target = document.querySelector<HTMLElement>(href);
-  if (!target) return;
+    const target = document.querySelector<HTMLElement>(href);
+    if (!target) return;
 
-  const navOffset = 0;
-  const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+    const navOffset = 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
 
-  window.scrollTo({ top, behavior: "smooth" });
-}
+    window.scrollTo({ top, behavior: "smooth" });
+  }
 </script>
 
 <Nav.Root

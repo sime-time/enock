@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { cn, type WithElementRef } from "$lib/utils.js";
   import type { Snippet } from "svelte";
   import type { HTMLButtonAttributes } from "svelte/elements";
+  import { cn, type WithElementRef } from "$lib/utils.js";
 
   let {
     ref = $bindable(null),
@@ -37,5 +37,7 @@
 {#if child}
   {@render child({ props: mergedProps })}
 {:else}
-  <button bind:this={ref} {...mergedProps}>{@render children?.()}</button>
+  <button type="button" bind:this={ref} {...mergedProps}>
+    {@render children?.()}
+  </button>
 {/if}

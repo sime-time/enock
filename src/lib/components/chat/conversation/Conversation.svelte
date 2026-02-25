@@ -1,7 +1,7 @@
 <script lang="ts" module>
-  import { cn, type WithElementRef } from "$lib/utils";
-  import type { HTMLAttributes } from "svelte/elements";
   import type { Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
+  import { cn, type WithElementRef } from "$lib/utils";
 
   export interface ConversationProps
     extends WithElementRef<HTMLAttributes<HTMLDivElement>> {
@@ -12,18 +12,18 @@
 </script>
 
 <script lang="ts">
-import { setStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
+  import { setStickToBottomContext } from "./stick-to-bottom-context.svelte.js";
 
-let {
-  class: className,
-  children,
-  initial = "smooth",
-  resize = "smooth",
-  ref = $bindable(null),
-  ...restProps
-}: ConversationProps = $props();
+  let {
+    class: className,
+    children,
+    initial = "smooth",
+    resize = "smooth",
+    ref = $bindable(null),
+    ...restProps
+  }: ConversationProps = $props();
 
-let context = setStickToBottomContext();
+  let context = setStickToBottomContext();
 </script>
 
 <div

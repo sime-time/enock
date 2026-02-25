@@ -1,26 +1,26 @@
 <script lang="ts">
-import * as Accordion from "$lib/components/ui/accordion/index";
-import { Badge } from "$lib/components/ui/badge";
+  import * as Accordion from "$lib/components/ui/accordion/index";
+  import { Badge } from "$lib/components/ui/badge";
 
-const faqs = [
-  {
-    question: "What if Enock builds a plan that doesn't fit my schedule?",
-    answer: "You can adjust it yourself or ask Enock to.",
-  },
-  {
-    question: "Can I use Enock on mobile?",
-    answer:
-      "Yes, you can save the app to your homescreen for a mobile app experience.",
-  },
-  {
-    question: "I already use Google Calendar.",
-    answer: "Good. Enock makes it intentional.",
-  },
-  {
-    question: "I don't have anything on my calendar.",
-    answer: "Even better. We build from zero.",
-  },
-];
+  const faqs = [
+    {
+      question: "What if Enock builds a plan that doesn't fit my schedule?",
+      answer: "You can adjust it yourself or ask Enock to.",
+    },
+    {
+      question: "Can I use Enock on mobile?",
+      answer:
+        "Yes, you can save the app to your homescreen for a mobile app experience.",
+    },
+    {
+      question: "I already use Google Calendar.",
+      answer: "Good. Enock makes it intentional.",
+    },
+    {
+      question: "I don't have anything on my calendar.",
+      answer: "Even better. We build from zero.",
+    },
+  ];
 </script>
 
 <section id="faq" class="relative bg-background py-24 sm:py-32">

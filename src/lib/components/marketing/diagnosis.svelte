@@ -1,16 +1,16 @@
 <script lang="ts">
-import ArrowRight from "@lucide/svelte/icons/arrow-right";
-import { Badge } from "$lib/components/ui/badge/index";
-import Button from "$lib/components/ui/button/button.svelte";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import { Badge } from "$lib/components/ui/badge/index";
+  import Button from "$lib/components/ui/button/button.svelte";
 
-const lines = [
-  "You don't fail because you lack goals.",
-  "You fail because your goals are never scheduled.",
-  "Ideas don't create progress.",
-  "Time blocks do.",
-  "Most people plan in their head.",
-  "Enock plans in their calendar.",
-];
+  const lines = [
+    "You don't fail because you lack goals.",
+    "You fail because your goals are never scheduled.",
+    "Ideas don't create progress.",
+    "Time blocks do.",
+    "Most people plan in their head.",
+    "Enock plans in their calendar.",
+  ];
 </script>
 
 <section

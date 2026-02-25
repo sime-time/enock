@@ -1,46 +1,46 @@
 <script lang="ts">
-import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
-import { Badge } from "$lib/components/ui/badge";
-import { Button } from "$lib/components/ui/button";
+  import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
+  import { Badge } from "$lib/components/ui/badge";
+  import { Button } from "$lib/components/ui/button";
 
-const plans = [
-  {
-    name: "Monthly",
-    price: "$12",
-    period: "a month",
-    subtitle: "Limited AI responses (limits finalized soon)",
-    features: [
-      "Generate unlimited 7-day execution plans",
-      "Full access to Enock AI mentor",
-      "Connect and plan inside your calendar",
-      "Ongoing updates and improvements",
-    ],
-  },
-  {
-    name: "Yearly",
-    price: "$49",
-    period: "a year",
-    subtitle: "Limited AI responses (limits finalized soon)",
-    bestValue: true,
-    features: [
-      "Everything in Monthly",
-      "Lower long-term cost",
-      "Stay consistent without interruptions",
-    ],
-  },
-  {
-    name: "One-Time",
-    price: "$97",
-    period: "one-time",
-    subtitle: "Use your own API key for AI responses",
-    features: [
-      "Lifetime access to Enock",
-      "All current features included",
-      "Future updates included",
-      "No recurring payments",
-    ],
-  },
-];
+  const plans = [
+    {
+      name: "Monthly",
+      price: "$12",
+      period: "a month",
+      subtitle: "Limited AI responses (limits finalized soon)",
+      features: [
+        "Generate unlimited 7-day execution plans",
+        "Full access to Enock AI mentor",
+        "Connect and plan inside your calendar",
+        "Ongoing updates and improvements",
+      ],
+    },
+    {
+      name: "Yearly",
+      price: "$39",
+      period: "a year",
+      subtitle: "Limited AI responses (limits finalized soon)",
+      bestValue: true,
+      features: [
+        "Everything in Monthly",
+        "Lower long-term cost",
+        "Stay consistent without interruptions",
+      ],
+    },
+    {
+      name: "One-Time",
+      price: "$69",
+      period: "one-time",
+      subtitle: "Use your own API key for AI responses",
+      features: [
+        "Lifetime access to Enock",
+        "All current features included",
+        "Future updates included",
+        "No recurring payments",
+      ],
+    },
+  ];
 </script>
 
 <section id="pricing" class="relative bg-background py-24 sm:py-32">
