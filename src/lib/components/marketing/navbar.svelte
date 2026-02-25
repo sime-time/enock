@@ -1,28 +1,42 @@
 <script lang="ts">
-	import * as Nav from "$lib/components/ui/navigation-menu/index";
-	import Button from "$lib/components/ui/button/button.svelte";
-	import MenuIcon from "@lucide/svelte/icons/menu";
-	import * as Sheet from "$lib/components/ui/sheet/index";
-	import logo from "$lib/assets/enock-logo.svg";
+  import * as Nav from "$lib/components/ui/navigation-menu/index";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import MenuIcon from "@lucide/svelte/icons/menu";
+  import * as Sheet from "$lib/components/ui/sheet/index";
+  import logo from "$lib/assets/enock-logo.svg";
 
-	import { IsMobile } from "$lib/hooks/is-mobile.svelte";
+  import { IsMobile } from "$lib/hooks/is-mobile.svelte";
 
-	const isMobile = new IsMobile();
+  const isMobile = new IsMobile();
 
-	const navItems = [
-		{
-			title: "Method",
-			href: "#method",
-		},
-		{
-			title: "Pricing",
-			href: "#pricing",
-		},
-		{
-			title: "FAQ",
-			href: "#faq",
-		},
-	];
+  const navItems = [
+    {
+      title: "Method",
+      href: "#method",
+    },
+    {
+      title: "Pricing",
+      href: "#pricing",
+    },
+    {
+      title: "FAQ",
+      href: "#faq",
+    },
+  ];
+
+  function scrollToSection(href: string, event?: MouseEvent): void {
+    if (!href.startsWith("#")) return;
+
+    event?.preventDefault();
+
+    const target = document.querySelector<HTMLElement>(href);
+    if (!target) return;
+
+    const navOffset = 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+  }
 </script>
 
 <Nav.Root
@@ -46,17 +60,27 @@
 			{#each navItems as item}
 				<Nav.Item>
 					<Nav.Link
-						class="cursor-pointer hover:bg-transparent focus:bg-transparent"
+						href={item.href}
+						onclick={(event) => scrollToSection(item.href, event)}
+						class="cursor-pointer transition-all duration-200 hover:bg-transparent focus:bg-transparent hover:text-foreground hover:-translate-y-0.5"
 					>
 						{item.title}
 					</Nav.Link>
 				</Nav.Item>
 			{/each}
 		</Nav.List>
-		<Button href="/auth/login">Sign In</Button>
+		<Button
+			href="/auth/login"
+			class="transition-transform duration-200 hover:-translate-y-0.5"
+			>Sign In</Button
+		>
 	{:else}
 		<Nav.List class="flex gap-4">
-			<Button href="/auth/login">Sign In</Button>
+			<Button
+				href="/auth/login"
+				class="transition-transform duration-200 hover:-translate-y-0.5"
+				>Sign In</Button
+			>
 			<Sheet.Root>
 				<Sheet.Trigger>
 					{#snippet child({ props })}
@@ -84,7 +108,11 @@
 					<section class="flex flex-col justify-between h-full mb-3">
 						<div class="flex flex-col gap-3 mx-2">
 							{#each navItems as item}
-								<Button href={item.href} variant="outline">
+								<Button
+									href={item.href}
+									variant="outline"
+									onclick={(event) => scrollToSection(item.href, event)}
+								>
 									<span>{item.title}</span>
 								</Button>
 							{/each}

@@ -23,6 +23,8 @@
 
 	<div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-8">
 		<h2
+			data-reveal
+			style="--reveal-delay: 60ms"
 			class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl"
 		>
 			If <span class="text-muted-foreground">nothing</span> changes,<br />
@@ -30,17 +32,19 @@
 		</h2>
 
 		<p
+			data-reveal
+			style="--reveal-delay: 150ms"
 			class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
 		>
 			The gap between who you are and who you want to be is built one executed
 			day at a time.
 		</p>
 
-		<div class="mt-10">
+		<div class="mt-10" data-reveal style="--reveal-delay: 240ms">
 			<Button
 				href="/auth/login"
 				size="lg"
-				class="h-12 rounded-xl px-8 text-base font-semibold"
+				class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
 			>
 				Start Your 7-Day Execution Plan
 				<ArrowRightIcon class="size-4" />

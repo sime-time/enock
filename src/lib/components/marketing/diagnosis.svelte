@@ -49,6 +49,8 @@
 		>
 			<div class="max-w-3xl">
 				<Badge
+					data-reveal
+					style="--reveal-delay: 40ms"
 					variant="outline"
 					class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
 				>
@@ -57,6 +59,8 @@
 				</Badge>
 
 				<h2
+					data-reveal
+					style="--reveal-delay: 120ms"
 					class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl"
 				>
 					<span class="text-muted-foreground">Ambition</span> without structure
@@ -67,6 +71,8 @@
 				<div class="mt-12 space-y-4 sm:space-y-5">
 					{#each lines as line, index (line)}
 						<p
+							data-reveal
+							style={`--reveal-delay: ${190 + index * 55}ms`}
 							class={index % 2 === 1
 								? "text-xl leading-snug font-semibold text-foreground sm:text-2xl"
 								: "text-lg leading-snug text-muted-foreground sm:text-xl"}
@@ -78,7 +84,9 @@
 				<Button
 					href="/auth/login"
 					size="lg"
-					class="h-12 rounded-xl px-8 text-base font-semibold mt-8"
+					class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
+					data-reveal
+					style="--reveal-delay: 420ms"
 				>
 					Plan Your Goals Today
 					<svg

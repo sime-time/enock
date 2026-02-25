@@ -56,6 +56,8 @@
 		class="relative z-10 mx-auto flex max-w-full flex-col items-center px-6 text-center lg:px-8"
 	>
 		<Badge
+			data-reveal
+			style="--reveal-delay: 40ms"
 			variant="outline"
 			class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
 		>
@@ -64,6 +66,8 @@
 		</Badge>
 
 		<h2
+			data-reveal
+			style="--reveal-delay: 120ms"
 			class="font-heading max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl"
 		>
 			You don't have a <span class="text-muted-foreground">motivation</span>
@@ -74,15 +78,17 @@
 		</h2>
 
 		<div class="mt-16 w-full space-y-12 sm:mt-20 sm:space-y-14">
-			{#each questions as question}
+			{#each questions as question, index}
 				<div
-					class="group mx-auto flex max-w-full flex-col items-center gap-4 transition-transform duration-300 ease-out hover:scale-[1.03]"
+					data-reveal
+					style={`--reveal-delay: ${180 + index * 70}ms`}
+					class="group mx-auto flex max-w-full flex-col items-center gap-4 will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.02]"
 				>
 					<question.icon
-						class="size-9 text-muted-foreground transition-all duration-300 ease-out group-hover:scale-110 group-hover:text-primary sm:size-10"
+						class="size-9 text-muted-foreground will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:text-primary sm:size-10"
 					/>
 					<p
-						class="text-lg leading-tight font-medium text-muted-foreground transition-all duration-300 ease-out group-hover:text-foreground sm:text-2xl"
+						class="text-lg leading-tight font-medium text-muted-foreground transition-colors duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-foreground sm:text-2xl"
 					>
 						"{question.sentence}"
 					</p>

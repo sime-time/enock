@@ -1,56 +1,56 @@
 <script lang="ts">
-	import CalendarDaysIcon from "@lucide/svelte/icons/calendar-days";
-	import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import CalendarDaysIcon from "@lucide/svelte/icons/calendar-days";
+  import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import Button from "$lib/components/ui/button/button.svelte";
 
-	const timeLabels = [
-		"9 AM",
-		"10 AM",
-		"11 AM",
-		"12 PM",
-		"1 PM",
-		"2 PM",
-		"3 PM",
-	];
+  const timeLabels = [
+    "9 AM",
+    "10 AM",
+    "11 AM",
+    "12 PM",
+    "1 PM",
+    "2 PM",
+    "3 PM",
+  ];
 
-	const events = [
-		{
-			title: "Morning Walk",
-			time: "8:00 - 9:00 AM",
-			top: 1,
-			height: 39,
-			classes: "border-l-green-300 bg-green-400/18 text-green-100",
-		},
-		{
-			title: "Deep Work",
-			time: "9:00- 12:00 PM",
-			top: 43,
-			height: 117,
-			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
-		},
-		{
-			title: "Cook & Eat Lunch",
-			time: "12:00 - 1:00 PM",
-			top: 164,
-			height: 37,
-			classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
-		},
-		{
-			title: "Gym",
-			time: "1:00 - 2:30 PM",
-			top: 205,
-			height: 60,
-			classes: "border-l-red-400 bg-red-500/20 text-red-100",
-		},
-		{
-			title: "Marketing",
-			time: "2:30 - 3:30 PM",
-			top: 269,
-			height: 58,
-			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
-		},
-	];
+  const events = [
+    {
+      title: "Morning Walk",
+      time: "8:00 - 9:00 AM",
+      top: 1,
+      height: 39,
+      classes: "border-l-green-300 bg-green-400/18 text-green-100",
+    },
+    {
+      title: "Deep Work",
+      time: "9:00- 12:00 PM",
+      top: 43,
+      height: 117,
+      classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+    },
+    {
+      title: "Cook & Eat Lunch",
+      time: "12:00 - 1:00 PM",
+      top: 164,
+      height: 37,
+      classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
+    },
+    {
+      title: "Gym",
+      time: "1:00 - 2:30 PM",
+      top: 205,
+      height: 60,
+      classes: "border-l-red-400 bg-red-500/20 text-red-100",
+    },
+    {
+      title: "Marketing",
+      time: "2:30 - 3:30 PM",
+      top: 269,
+      height: 58,
+      classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+    },
+  ];
 </script>
 
 <section id="method-step-2" class="relative overflow-hidden py-16 sm:py-20">
@@ -62,6 +62,8 @@
 		class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
 	>
 		<div
+			data-reveal
+			style="--reveal-delay: 70ms"
 			class="order-2 lg:order-1 overflow-hidden rounded-xl border border-border/70 bg-background/75"
 		>
 			<div class="flex items-start justify-between px-4 pt-4 pb-3">
@@ -109,7 +111,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="order-1 lg:order-2 max-w-xl">
+		<div class="order-1 lg:order-2 max-w-xl" data-reveal style="--reveal-delay: 140ms">
 			<p
 				class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
 			>
@@ -147,7 +149,7 @@
 			<Button
 				href="/auth/login"
 				size="lg"
-				class="h-12 rounded-xl px-8 text-base font-semibold mt-8"
+				class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
 			>
 				Build Your Week
 				<ArrowRight />

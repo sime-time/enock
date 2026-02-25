@@ -27,6 +27,8 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl text-center">
 			<Badge
+				data-reveal
+				style="--reveal-delay: 40ms"
 				variant="outline"
 				class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
 			>
@@ -35,18 +37,20 @@
 			</Badge>
 
 			<h2
+				data-reveal
+				style="--reveal-delay: 120ms"
 				class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl"
 			>
 				Common Questions
 			</h2>
 
-			<p class="mt-4 text-base font-medium text-muted-foreground sm:text-lg">
+			<p data-reveal style="--reveal-delay: 190ms" class="mt-4 text-base font-medium text-muted-foreground sm:text-lg">
 				Clear questions for a clear mind
 			</p>
 
-			<Accordion.Root type="single" class="mt-6 space-y-4 px-5 py-3">
-				{#each faqs as faq}
-					<Accordion.Item class="border p-2 px-6 rounded-xl bg-muted/30">
+			<Accordion.Root type="single" class="mt-6 space-y-4 px-5 py-3" data-reveal style="--reveal-delay: 250ms">
+				{#each faqs as faq, index}
+					<Accordion.Item class="rounded-xl border bg-muted/30 p-2 px-6 transition-colors duration-200 hover:border-primary/40" data-reveal style={`--reveal-delay: ${270 + index * 60}ms`}>
 						<Accordion.Trigger class="text-md">
 							{faq.question}
 						</Accordion.Trigger>

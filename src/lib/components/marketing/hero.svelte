@@ -43,6 +43,8 @@
 		>
 			<div class="max-w-2xl">
 				<Badge
+					data-reveal
+					style="--reveal-delay: 40ms"
 					variant="outline"
 					class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
 				>
@@ -51,6 +53,8 @@
 				</Badge>
 
 				<h1
+					data-reveal
+					style="--reveal-delay: 120ms"
 					class="font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl"
 				>
 					<span>Your goals mean</span>
@@ -60,13 +64,15 @@
 				</h1>
 
 				<p
+					data-reveal
+					style="--reveal-delay: 190ms"
 					class="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground"
 				>
 					Enock builds a structured 7-day plan from your goals and tracks
 					whether you actually follow through.
 				</p>
 
-				<div class="mt-4 flex items-center gap-2.5">
+				<div data-reveal style="--reveal-delay: 250ms" class="mt-4 flex items-center gap-2.5">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="size-5 shrink-0 text-primary"
@@ -81,11 +87,11 @@
 					</p>
 				</div>
 
-				<div class="mt-10 flex flex-wrap items-center gap-4">
+				<div data-reveal style="--reveal-delay: 320ms" class="mt-10 flex flex-wrap items-center gap-4">
 					<Button
 						href="/auth/login"
 						size="lg"
-						class="h-12 rounded-xl px-8 text-base font-semibold"
+						class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
 					>
 						Get Your 7-Day Plan
 						<svg
@@ -104,7 +110,7 @@
 						href="#how-it-works"
 						variant="outline"
 						size="lg"
-						class="h-12 rounded-xl px-8 text-base font-semibold"
+						class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
 					>
 						See How It Works
 					</Button>

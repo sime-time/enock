@@ -1,6 +1,6 @@
 <script lang="ts">
-	import InstagramIcon from "@lucide/svelte/icons/instagram";
-	import logo from "$lib/assets/enock-logo.svg";
+  import InstagramIcon from "@lucide/svelte/icons/instagram";
+  import logo from "$lib/assets/enock-logo.svg";
 </script>
 
 <footer class="border-t border-border/70 bg-background py-10 sm:py-12">

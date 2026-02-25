@@ -1,50 +1,50 @@
 <script lang="ts">
-	import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
-	import CheckIcon from "@lucide/svelte/icons/check";
-	import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
-	import HeartIcon from "@lucide/svelte/icons/heart";
-	import MicIcon from "@lucide/svelte/icons/mic";
-	import TargetIcon from "@lucide/svelte/icons/target";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import BriefcaseBusinessIcon from "@lucide/svelte/icons/briefcase-business";
+  import CheckIcon from "@lucide/svelte/icons/check";
+  import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
+  import HeartIcon from "@lucide/svelte/icons/heart";
+  import MicIcon from "@lucide/svelte/icons/mic";
+  import TargetIcon from "@lucide/svelte/icons/target";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import Button from "$lib/components/ui/button/button.svelte";
 
-	let selected = $state([0]);
-	let focusSuccessAnswers = $state<Record<number, string>>({});
+  let selected = $state([0]);
+  let focusSuccessAnswers = $state<Record<number, string>>({});
 
-	const focusCards = [
-		{
-			id: 0,
-			title: "Fitness",
-			description: "Health & vitality",
-			icon: DumbbellIcon,
-			placeholder: "Have 6 pack abs...",
-		},
-		{
-			id: 1,
-			title: "Career",
-			description: "Wealth & business",
-			icon: BriefcaseBusinessIcon,
-			placeholder: "Earn $10k per month...",
-		},
-		{
-			id: 2,
-			title: "Discipline",
-			description: "Habits & routine",
-			icon: TargetIcon,
-			placeholder: "Wake up early...",
-		},
-		{
-			id: 3,
-			title: "Relationships",
-			description: "Family & friends",
-			icon: HeartIcon,
-			placeholder: "Have a girlfriend...",
-		},
-	];
+  const focusCards = [
+    {
+      id: 0,
+      title: "Fitness",
+      description: "Health & vitality",
+      icon: DumbbellIcon,
+      placeholder: "Have 6 pack abs...",
+    },
+    {
+      id: 1,
+      title: "Career",
+      description: "Wealth & business",
+      icon: BriefcaseBusinessIcon,
+      placeholder: "Earn $10k per month...",
+    },
+    {
+      id: 2,
+      title: "Discipline",
+      description: "Habits & routine",
+      icon: TargetIcon,
+      placeholder: "Wake up early...",
+    },
+    {
+      id: 3,
+      title: "Relationships",
+      description: "Family & friends",
+      icon: HeartIcon,
+      placeholder: "Have a girlfriend...",
+    },
+  ];
 
-	let selectedFocusCards = $derived(
-		focusCards.filter((card) => selected.includes(card.id)),
-	);
+  let selectedFocusCards = $derived(
+    focusCards.filter((card) => selected.includes(card.id)),
+  );
 </script>
 
 <section id="method-step-1" class="relative overflow-hidden py-16 sm:py-20">
@@ -55,7 +55,7 @@
 	<div
 		class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
 	>
-		<div class="max-w-xl">
+		<div class="max-w-xl" data-reveal style="--reveal-delay: 60ms">
 			<p
 				class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
 			>
@@ -76,7 +76,7 @@
 			<Button
 				href="/auth/login"
 				size="lg"
-				class="h-12 rounded-xl px-8 text-base font-semibold mt-8"
+				class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
 			>
 				Achieve Your Goals
 				<ArrowRight />
@@ -84,6 +84,8 @@
 		</div>
 
 		<div
+			data-reveal
+			style="--reveal-delay: 140ms"
 			class="rounded-2xl border border-border/70 bg-card/40 p-4 shadow-2xl backdrop-blur-sm sm:p-5"
 		>
 			<p class="mb-3 text-base font-semibold text-foreground">
@@ -98,9 +100,9 @@
 								? selected.filter((id) => id !== card.id)
 								: [...selected, card.id];
 						}}
-						class={selected.includes(card.id)
+						class={`hover-rise ${selected.includes(card.id)
 							? "rounded-xl border border-primary bg-primary/10 p-3"
-							: "rounded-xl border border-border/70 bg-background/40 p-3"}
+							: "rounded-xl border border-border/70 bg-background/40 p-3"}`}
 					>
 						<div class="flex items-center justify-between gap-3">
 							<div class="flex items-center gap-3">

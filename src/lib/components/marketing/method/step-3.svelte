@@ -1,8 +1,8 @@
 <script lang="ts">
-	import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
-	import ArrowRight from "@lucide/svelte/icons/arrow-right";
-	import ArrowUp from "@lucide/svelte/icons/arrow-up";
-	import Button from "$lib/components/ui/button/button.svelte";
+  import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
+  import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import ArrowUp from "@lucide/svelte/icons/arrow-up";
+  import Button from "$lib/components/ui/button/button.svelte";
 </script>
 
 <section id="method-step-3" class="relative overflow-hidden py-16 sm:py-20">
@@ -13,7 +13,7 @@
 	<div
 		class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
 	>
-		<div class="max-w-xl">
+		<div class="max-w-xl" data-reveal style="--reveal-delay: 70ms">
 			<p
 				class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
 			>
@@ -35,7 +35,7 @@
 			<Button
 				href="/auth/login"
 				size="lg"
-				class="h-12 rounded-xl px-8 text-base font-semibold mt-8"
+				class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
 			>
 				Execute With Enock
 				<ArrowRight />
@@ -43,6 +43,8 @@
 		</div>
 
 		<div
+			data-reveal
+			style="--reveal-delay: 150ms"
 			class="rounded-2xl border border-border/70 bg-card/50 p-4 shadow-2xl backdrop-blur-sm sm:p-5"
 		>
 			<div class="space-y-4 border-border/60 bg-background/65 p-4">
