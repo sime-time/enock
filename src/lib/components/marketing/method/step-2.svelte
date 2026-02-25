@@ -3,6 +3,7 @@
   import CalendarDaysIcon from "@lucide/svelte/icons/calendar-days";
   import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
   import Button from "$lib/components/ui/button/button.svelte";
+  import Checkbox from "$lib/components/ui/checkbox/checkbox.svelte";
 
   const timeLabels = [
     "9 AM",
@@ -14,43 +15,89 @@
     "3 PM",
   ];
 
-  const events = [
+  let pulseEventId = $state<number | null>(null);
+
+  let events = $state([
     {
+      id: 0,
       title: "Morning Walk",
       time: "8:00 - 9:00 AM",
-      top: 1,
+      top: 0,
       height: 39,
+      checked: true,
       classes: "border-l-green-300 bg-green-400/18 text-green-100",
+      pulseClass: "bg-green-400/35",
+      checkboxClass:
+        "!border-green-300 data-[state=checked]:!border-green-300 data-[state=checked]:!bg-green-300 data-[state=checked]:!text-green-950",
     },
     {
+      id: 1,
       title: "Deep Work",
       time: "9:00- 12:00 PM",
-      top: 43,
-      height: 117,
+      top: 42,
+      height: 118,
+      checked: true,
       classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+      pulseClass: "bg-blue-500/45",
+      checkboxClass:
+        "!border-blue-400 data-[state=checked]:!border-blue-400 data-[state=checked]:!bg-blue-400 data-[state=checked]:!text-blue-950",
     },
     {
+      id: 2,
       title: "Cook & Eat Lunch",
       time: "12:00 - 1:00 PM",
-      top: 164,
-      height: 37,
+      top: 163,
+      height: 40,
+      checked: false,
       classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
+      pulseClass: "bg-amber-500/40",
+      checkboxClass:
+        "!border-amber-400 data-[state=checked]:!border-amber-400 data-[state=checked]:!bg-amber-400 data-[state=checked]:!text-amber-950",
     },
     {
+      id: 3,
       title: "Gym",
       time: "1:00 - 2:30 PM",
-      top: 205,
-      height: 60,
+      top: 206,
+      height: 63,
+      checked: false,
       classes: "border-l-red-400 bg-red-500/20 text-red-100",
+      pulseClass: "bg-red-500/40",
+      checkboxClass:
+        "!border-red-400 data-[state=checked]:!border-red-400 data-[state=checked]:!bg-red-400 data-[state=checked]:!text-red-950",
     },
     {
+      id: 4,
       title: "Marketing",
       time: "2:30 - 3:30 PM",
-      top: 269,
+      top: 272,
       height: 58,
+      checked: false,
       classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+      pulseClass: "bg-blue-500/45",
+      checkboxClass:
+        "!border-blue-400 data-[state=checked]:!border-blue-400 data-[state=checked]:!bg-blue-400 data-[state=checked]:!text-blue-950",
     },
-  ];
+  ]);
+
+  function toggleEvent(eventId: number, checked: boolean): void {
+    const targetEvent = events.find((event) => event.id === eventId);
+    if (!targetEvent) {
+      return;
+    }
+
+    targetEvent.checked = checked;
+    pulseEventId = null;
+
+    requestAnimationFrame(() => {
+      pulseEventId = eventId;
+      setTimeout(() => {
+        if (pulseEventId === eventId) {
+          pulseEventId = null;
+        }
+      }, 220);
+    });
+  }
 </script>
 
 <section id="method-step-2" class="relative overflow-hidden py-16 sm:py-20">
@@ -97,13 +144,37 @@
             ></div>
           {/each}
 
-          {#each events as event}
+          {#each events as event (event.id)}
             <div
-              class={`absolute right-3 left-2 rounded-md border border-border/40 border-l-4 px-3 py-0.5 ${event.classes}`}
+              class={`absolute right-3 left-2 overflow-hidden rounded-md border border-border/40 border-l-4 px-2.5 py-1 ${event.classes}`}
               style={`top:${event.top}px;height:${event.height}px`}
             >
-              <p class="text-sm leading-tight">{event.title}</p>
-              <p class="text-xs text-current/80">{event.time}</p>
+              <div
+                aria-hidden="true"
+                class={`pointer-events-none absolute inset-0 ${event.pulseClass} ${pulseEventId === event.id
+                  ? "event-pulse"
+                  : "opacity-0"}`}
+              ></div>
+
+              <div class="relative flex items-start gap-2">
+                <Checkbox
+                  class={`mt-0.5 bg-white/10 ${event.checkboxClass}`}
+                  checked={event.checked}
+                  onCheckedChange={(checked) =>
+                    toggleEvent(event.id, checked === true)}
+                  aria-label={`Mark ${event.title} complete`}
+                />
+                <div>
+                  <p
+                    class={`text-sm leading-tight transition-all ${event.checked
+                      ? "line-through opacity-70"
+                      : ""}`}
+                  >
+                    {event.title}
+                  </p>
+                  <p class="text-xs text-current/80">{event.time}</p>
+                </div>
+              </div>
             </div>
           {/each}
         </div>
@@ -141,11 +212,11 @@
         </li>
         <li class="flex items-start gap-3 text-muted-foreground">
           <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Built-in review and adjustment blocks</span>
+          <span>No empty time - everything is intentional</span>
         </li>
         <li class="flex items-start gap-3 text-muted-foreground">
           <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>No empty time - everything is intentional</span>
+          <span>Enock knows how you spend your time</span>
         </li>
       </ul>
       <Button
@@ -159,3 +230,23 @@
     </div>
   </div>
 </section>
+
+<style>
+  .event-pulse {
+    animation: event-pulse 200ms ease-out;
+  }
+
+  @keyframes event-pulse {
+    0% {
+      opacity: 0;
+    }
+
+    35% {
+      opacity: 0.75;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+</style>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
   import { Badge } from "$lib/components/ui/badge";
   import { Button } from "$lib/components/ui/button";
 </script>
@@ -78,7 +79,7 @@
           style="--reveal-delay: 250ms"
           class="mt-4 flex items-center gap-2.5"
         >
-          <ArrowRight />
+          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
           <p class="text-sm font-medium text-muted-foreground">
             Connect your calendar. Get a 7-day plan. Execute.
           </p>

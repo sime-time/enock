@@ -4,27 +4,27 @@
   import CheckIcon from "@lucide/svelte/icons/check";
   import DumbbellIcon from "@lucide/svelte/icons/dumbbell";
   import HeartIcon from "@lucide/svelte/icons/heart";
-  import MicIcon from "@lucide/svelte/icons/mic";
+  import MicIcon from "@lucide/svelte/icons/save";
   import TargetIcon from "@lucide/svelte/icons/target";
   import Button from "$lib/components/ui/button/button.svelte";
 
-  let selected = $state([0]);
+  let selected = $state([0, 3]);
   let focusSuccessAnswers = $state<Record<number, string>>({});
 
   const focusCards = [
     {
       id: 0,
-      title: "Fitness",
-      description: "Health & vitality",
-      icon: DumbbellIcon,
-      placeholder: "Have 6 pack abs...",
-    },
-    {
-      id: 1,
       title: "Career",
       description: "Wealth & business",
       icon: BriefcaseBusinessIcon,
       placeholder: "Earn $10k per month...",
+    },
+    {
+      id: 1,
+      title: "Fitness",
+      description: "Health & vitality",
+      icon: DumbbellIcon,
+      placeholder: "Have 6 pack abs...",
     },
     {
       id: 2,
@@ -38,7 +38,7 @@
       title: "Relationships",
       description: "Family & friends",
       icon: HeartIcon,
-      placeholder: "Have a girlfriend...",
+      placeholder: "Get a girlfriend...",
     },
   ];
 
@@ -96,14 +96,9 @@
         {#each focusCards as card (card.title)}
           <button
             type="button"
-            onclick={() => {
-							selected = selected.includes(card.id)
-								? selected.filter((id) => id !== card.id)
-								: [...selected, card.id];
-						}}
-            class={`hover-rise ${selected.includes(card.id)
+            class={selected.includes(card.id)
 							? "rounded-xl border border-primary bg-primary/10 p-3"
-							: "rounded-xl border border-border/70 bg-background/40 p-3"}`}
+							: "rounded-xl border border-border/70 bg-background/40 p-3"}
           >
             <div class="flex items-center justify-between gap-3">
               <div class="flex items-center gap-3">
@@ -167,6 +162,7 @@
                     class="w-full bg-transparent px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
                     placeholder={card.placeholder}
                     bind:value={focusSuccessAnswers[card.id]}
+                    disabled
                   >
                   <Button
                     type="button"
