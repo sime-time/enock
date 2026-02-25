@@ -1,59 +1,59 @@
 <script lang="ts">
-  import CalendarDaysIcon from "@lucide/svelte/icons/calendar-days";
-  import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
-  import ArrowRight from "@lucide/svelte/icons/arrow-right";
-  import Button from "$lib/components/ui/button/button.svelte";
+	import CalendarDaysIcon from "@lucide/svelte/icons/calendar-days";
+	import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
+	import ArrowRight from "@lucide/svelte/icons/arrow-right";
+	import Button from "$lib/components/ui/button/button.svelte";
 
-  const timeLabels = [
-    "9 AM",
-    "10 AM",
-    "11 AM",
-    "12 PM",
-    "1 PM",
-    "2 PM",
-    "3 PM",
-  ];
+	const timeLabels = [
+		"9 AM",
+		"10 AM",
+		"11 AM",
+		"12 PM",
+		"1 PM",
+		"2 PM",
+		"3 PM",
+	];
 
-  const events = [
-    {
-      title: "Morning Walk",
-      time: "8:00 - 9:00 AM",
-      top: 1,
-      height: 39,
-      classes: "border-l-green-300 bg-green-400/18 text-green-100",
-    },
-    {
-      title: "Deep Work",
-      time: "9:00- 12:00 PM",
-      top: 43,
-      height: 117,
-      classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
-    },
-    {
-      title: "Cook & Eat Lunch",
-      time: "12:00 - 1:00 PM",
-      top: 164,
-      height: 37,
-      classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
-    },
-    {
-      title: "Gym",
-      time: "1:00 - 2:30 PM",
-      top: 205,
-      height: 60,
-      classes: "border-l-red-400 bg-red-500/20 text-red-100",
-    },
-    {
-      title: "Marketing",
-      time: "2:30 - 3:30 PM",
-      top: 269,
-      height: 58,
-      classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
-    },
-  ];
+	const events = [
+		{
+			title: "Morning Walk",
+			time: "8:00 - 9:00 AM",
+			top: 1,
+			height: 39,
+			classes: "border-l-green-300 bg-green-400/18 text-green-100",
+		},
+		{
+			title: "Deep Work",
+			time: "9:00- 12:00 PM",
+			top: 43,
+			height: 117,
+			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+		},
+		{
+			title: "Cook & Eat Lunch",
+			time: "12:00 - 1:00 PM",
+			top: 164,
+			height: 37,
+			classes: "border-l-amber-400 bg-amber-500/20 text-amber-100",
+		},
+		{
+			title: "Gym",
+			time: "1:00 - 2:30 PM",
+			top: 205,
+			height: 60,
+			classes: "border-l-red-400 bg-red-500/20 text-red-100",
+		},
+		{
+			title: "Marketing",
+			time: "2:30 - 3:30 PM",
+			top: 269,
+			height: 58,
+			classes: "border-l-blue-400 bg-blue-500/30 text-blue-100",
+		},
+	];
 </script>
 
-<section id="solution-step-2" class="relative overflow-hidden py-16 sm:py-20">
+<section id="method-step-2" class="relative overflow-hidden py-16 sm:py-20">
 	<div
 		class="pointer-events-none absolute inset-0 bg-linear-to-b from-background/20 via-background/60 to-background"
 	></div>

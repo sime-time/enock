@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge";
-  import Step1 from "$lib/components/marketing/method/step-1.svelte";
-  import Step2 from "$lib/components/marketing/method/step-2.svelte";
-  import Step3 from "$lib/components/marketing/method/step-3.svelte";
+	import { Badge } from "$lib/components/ui/badge";
+	import Step1 from "$lib/components/marketing/method/step-1.svelte";
+	import Step2 from "$lib/components/marketing/method/step-2.svelte";
+	import Step3 from "$lib/components/marketing/method/step-3.svelte";
 </script>
 
-<section id="solution" class="relative bg-background py-24 sm:py-32">
+<section id="method" class="relative bg-background py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl text-center">
 			<Badge
