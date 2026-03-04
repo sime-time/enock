@@ -108,10 +108,54 @@
   <div
     class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
   >
+    <div class="max-w-xl" data-reveal style="--reveal-delay: 140ms">
+      <p
+        class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
+      >
+        Step - 02
+      </p>
+
+      <h3
+        class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
+      >
+        Structure the Week
+      </h3>
+
+      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+        Enock builds a focused 7-day plan inside your calendar.
+      </p>
+
+      <ul class="mt-6 space-y-3">
+        <li class="flex items-start gap-3 text-muted-foreground">
+          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span>Keyboard shortcuts for quick calendar actions</span>
+        </li>
+        <li class="flex items-start gap-3 text-muted-foreground">
+          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span>Clear separation between work, training, and recovery</span>
+        </li>
+        <li class="flex items-start gap-3 text-muted-foreground">
+          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span>No empty time - everything is intentional</span>
+        </li>
+        <li class="flex items-start gap-3 text-muted-foreground">
+          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span>Enock knows how you spend your time</span>
+        </li>
+      </ul>
+      <Button
+        href="/auth/login"
+        size="lg"
+        class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
+      >
+        Build Your Week
+        <ArrowRight />
+      </Button>
+    </div>
     <div
       data-reveal
       style="--reveal-delay: 70ms"
-      class="order-2 lg:order-1 overflow-hidden rounded-xl border border-border/70 bg-background/75"
+      class="overflow-hidden rounded-xl border border-border/70 bg-background/75"
     >
       <div class="flex items-start justify-between px-4 pt-4 pb-3">
         <div class="flex items-center gap-3">
@@ -179,54 +223,6 @@
           {/each}
         </div>
       </div>
-    </div>
-    <div
-      class="order-1 lg:order-2 max-w-xl"
-      data-reveal
-      style="--reveal-delay: 140ms"
-    >
-      <p
-        class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
-      >
-        Step - 02
-      </p>
-
-      <h3
-        class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
-      >
-        Structure the Week
-      </h3>
-
-      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Enock builds a focused 7-day plan inside your calendar.
-      </p>
-
-      <ul class="mt-6 space-y-3">
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Keyboard shortcuts for quick calendar actions</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Clear separation between work, training, and recovery</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>No empty time - everything is intentional</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Enock knows how you spend your time</span>
-        </li>
-      </ul>
-      <Button
-        href="/auth/login"
-        size="lg"
-        class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
-      >
-        Build Your Week
-        <ArrowRight />
-      </Button>
     </div>
   </div>
 </section>

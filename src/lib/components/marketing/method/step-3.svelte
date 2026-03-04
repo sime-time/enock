@@ -13,35 +13,6 @@
   <div
     class="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-start lg:gap-12 lg:px-8"
   >
-    <div class="max-w-xl" data-reveal style="--reveal-delay: 70ms">
-      <p
-        class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
-      >
-        Step - 03
-      </p>
-
-      <h3
-        class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
-      >
-        Talk to Enock
-      </h3>
-
-      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Talk through your plan, refine your thinking, and adjust your next move.
-        Enock sees your goals and your calendar, so every response is grounded
-        in reality.
-      </p>
-
-      <Button
-        href="/auth/login"
-        size="lg"
-        class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
-      >
-        Execute With Enock
-        <ArrowRight />
-      </Button>
-    </div>
-
     <div
       data-reveal
       style="--reveal-delay: 150ms"
@@ -97,6 +68,35 @@
           <ArrowUp class="size-5" />
         </Button>
       </div>
+    </div>
+
+    <div class="max-w-xl" data-reveal style="--reveal-delay: 70ms">
+      <p
+        class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
+      >
+        Step - 03
+      </p>
+
+      <h3
+        class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
+      >
+        Talk to Enock
+      </h3>
+
+      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+        Talk through your plan, refine your thinking, and adjust your next move.
+        Enock sees your goals and your calendar, so every response is grounded
+        in reality.
+      </p>
+
+      <Button
+        href="/auth/login"
+        size="lg"
+        class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
+      >
+        Execute With Enock
+        <ArrowRight />
+      </Button>
     </div>
   </div>
 </section>
