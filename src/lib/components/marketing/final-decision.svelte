@@ -36,8 +36,7 @@
       style="--reveal-delay: 150ms"
       class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
     >
-      The gap between who you are and who you want to be is closed one executed
-      day at a time.
+      You become who you want to be by taking action every day.
     </p>
 
     <div class="mt-10" data-reveal style="--reveal-delay: 240ms">

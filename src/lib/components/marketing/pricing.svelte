@@ -21,7 +21,7 @@
       price: "$39",
       period: "a year",
       subtitle: "Limited AI responses (limits finalized soon)",
-      bestValue: true,
+      recommended: true,
       features: [
         "Everything in Monthly",
         "Lower long-term cost",
@@ -70,7 +70,7 @@
         <div
           data-reveal
           style={`--reveal-delay: ${180 + index * 80}ms`}
-          class={`hover-rise flex flex-col gap-6 rounded-2xl border p-6 shadow-lg ${plan.bestValue ? "border-primary bg-primary/8 ring-1 ring-primary/40 lg:-translate-y-2" : "border-border/70 bg-card/40"}`}
+          class={`hover-rise flex flex-col gap-6 rounded-2xl border p-6 shadow-lg ${plan.recommended ? "border-primary bg-primary/8 ring-1 ring-primary/40 lg:-translate-y-2" : "border-border/70 bg-card/40"}`}
         >
           <div class="flex items-start justify-between gap-3">
             <div>
@@ -79,12 +79,12 @@
               </p>
               <p class="mt-1 text-sm text-muted-foreground">{plan.subtitle}</p>
             </div>
-            {#if plan.bestValue}
+            {#if plan.recommended}
               <Badge
                 variant="default"
                 class="rounded-full px-3 py-1 text-xs uppercase tracking-widest"
               >
-                best-value
+                Recommended
               </Badge>
             {/if}
           </div>
