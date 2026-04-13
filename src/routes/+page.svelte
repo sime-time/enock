@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import Comparison from "$lib/components/marketing/comparison/index.svelte";
   import Diagnosis from "$lib/components/marketing/diagnosis.svelte";
   import Faq from "$lib/components/marketing/faq.svelte";
   import FinalDecision from "$lib/components/marketing/final-decision.svelte";
@@ -55,6 +56,7 @@
     <Problem />
     <Diagnosis />
     <Method />
+    <Comparison />
     <Faq />
     <FinalDecision />
   </main>

@@ -37,12 +37,12 @@
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Target your goals
+        Target what matters
       </h3>
 
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Categorize your time blocks for each specific goal / area in your life:
-        work, training, admin, spirituality, or anything else that matters.
+        You don’t need more ideas. You need clarity on where your time should
+        go. Work. Training. Health. Life. Anything that matters.
       </p>
       <Button
         href={PRIMARY_CTA_HREF}

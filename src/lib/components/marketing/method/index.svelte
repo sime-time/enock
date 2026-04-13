@@ -31,9 +31,8 @@
         style="--reveal-delay: 190ms"
         class="mt-4 text-base font-medium text-muted-foreground sm:text-lg"
       >
-        Traditional calendars are built around events, meetings, and logistics.
-        <br>
-        Enock is built around personal execution.
+        Traditional calendars organize meetings and events. <br>
+        Enock organizes your behavior.
       </p>
     </div>
   </div>

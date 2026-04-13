@@ -11,12 +11,12 @@
   const isMobile = new IsMobile();
 
   const navItems = [
-    { title: "Home", href: "/" },
     { title: "Problem", href: "#problem" },
     {
-      title: "Solution",
+      title: "Method",
       href: "#method",
     },
+    { title: "Compare", href: "/#comparison" },
     {
       title: "FAQ",
       href: "#faq",

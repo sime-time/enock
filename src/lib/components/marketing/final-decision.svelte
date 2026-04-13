@@ -37,7 +37,8 @@
       style="--reveal-delay: 150ms"
       class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
     >
-      You become who you want to be by taking action every day.
+      You already know what you want. You just haven’t been structuring your
+      time to match it.
     </p>
 
     <div class="mt-10" data-reveal style="--reveal-delay: 240ms">

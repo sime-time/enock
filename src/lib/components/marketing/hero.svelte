@@ -72,9 +72,8 @@
           style="--reveal-delay: 190ms"
           class="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground"
         >
-          Enock is a personal calendar built for time blocking your day,
-          checking off completed blocks, and seeing whether your week reflects
-          your ambition.
+          Enock is a personal calendar built for daily time blocking and
+          exposing the gap between intention and execution.
         </p>
 
         <div

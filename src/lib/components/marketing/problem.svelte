@@ -1,5 +1,4 @@
 <script lang="ts">
-  import BellOffIcon from "@lucide/svelte/icons/bell-off";
   import CalendarClockIcon from "@lucide/svelte/icons/calendar-clock";
   import TimerResetIcon from "@lucide/svelte/icons/timer-reset";
   import TrophyIcon from "@lucide/svelte/icons/trophy";
@@ -11,13 +10,14 @@
       icon: CalendarClockIcon,
     },
     {
-      sentence: "Does your calendar reflect your ambition?",
-      icon: TrophyIcon,
-    },
-    {
       sentence:
         "If you repeated this week for 3 years, where would you end up?",
       icon: TimerResetIcon,
+    },
+    {
+      sentence:
+        "Does your calendar reflect your ambitions, or your distractions?",
+      icon: TrophyIcon,
     },
   ];
 </script>
@@ -67,10 +67,13 @@
       class="font-heading max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl"
     >
       You don't have a <span class="text-muted-foreground">motivation</span>
-      problem.
+      problem
       <br>
       <br>
-      You have a <span class="text-primary">structure</span> problem.
+      You've been relying on
+      <span class="text-muted-foreground">emotion</span>
+      instead of
+      <span class="text-primary">structure</span>
     </h2>
 
     <div class="mt-16 w-full space-y-12 sm:mt-20 sm:space-y-14">

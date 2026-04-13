@@ -6,11 +6,11 @@
 
   const lines = [
     "Most people know what they should do.",
-    "But they don't have a system that turns intention into scheduled action.",
-    "Ideas don't create progress.",
-    "Your goals live in your head.",
-    "You get distracted by social media.",
-    "And most calendars are built for meetings, not execution.",
+    "But they've never used a system that turns intention into scheduled action.",
+    "So they keep everything in their head.",
+    'They rely on "feeling ready".',
+    "Then get distracted by social media.",
+    "Most calendars are built for meetings, not goals.",
   ];
 </script>
 
@@ -90,7 +90,7 @@
           data-reveal
           style="--reveal-delay: 420ms"
         >
-          Execute your plans <ArrowRight />
+          Execute your goals <ArrowRight />
         </Button>
       </div>
     </div>

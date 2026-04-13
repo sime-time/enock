@@ -37,6 +37,11 @@
         Measure your execution
       </h3>
 
+      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+        You’re not guessing anymore. You can see what you followed. What you
+        skipped. Where your time leaked.
+      </p>
+
       <ul class="mt-6 space-y-3">
         {#each bullets as bullet}
           <li class="flex items-start gap-3 text-muted-foreground">

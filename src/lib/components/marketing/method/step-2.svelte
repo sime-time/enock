@@ -17,9 +17,9 @@
   ];
 
   let bullets = [
-    "Time blocks, not task lists.",
+    "Time blocks instead of vague tasks.",
     "Mark each block as done or missed.",
-    "A weekly review that exposes how you actually lived.",
+    "Review what actually got done without guessing.",
   ];
 
   let pulseEventId = $state<number | null>(null);
