@@ -6,7 +6,7 @@
   <div
     class="mx-auto flex max-w-7xl flex-col gap-6 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
   >
-    <div class="flex items-center gap-3">
+    <a href="/" class="flex items-center gap-3">
       <img src={logo} alt="Enock logo" class="size-8 rounded-md">
       <div>
         <p class="font-heading text-base font-semibold text-foreground">
@@ -16,7 +16,7 @@
           &copy; 2026 Enock. All rights reserved.
         </p>
       </div>
-    </div>
+    </a>
 
     <div
       class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground"
