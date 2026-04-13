@@ -44,7 +44,7 @@
     >
       One helps you plan time.
       <br>
-      <span class="text-primary">The other exposes how you used it.</span>
+      <span class="text-primary">The other exposes how you use it.</span>
     </p>
   </div>
 </section>

@@ -16,7 +16,7 @@
       title: "Method",
       href: "#method",
     },
-    { title: "Compare", href: "/#comparison" },
+    { title: "Compare", href: "#comparison" },
     {
       title: "FAQ",
       href: "#faq",

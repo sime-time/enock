@@ -165,6 +165,7 @@
                 href={PRIMARY_CTA_HREF}
                 size="lg"
                 class="relative z-20 mt-4 h-11 w-fit rounded-xl px-5 text-sm font-semibold"
+                variant="outline"
               >
                 Build Next Week
                 <ArrowUpRight class="size-4" />
