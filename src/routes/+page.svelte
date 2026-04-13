@@ -4,7 +4,6 @@
   import Diagnosis from "$lib/components/marketing/diagnosis.svelte";
   import Faq from "$lib/components/marketing/faq.svelte";
   import FinalDecision from "$lib/components/marketing/final-decision.svelte";
-  import Footer from "$lib/components/marketing/footer.svelte";
   import Hero from "$lib/components/marketing/hero.svelte";
   import Method from "$lib/components/marketing/method/index.svelte";
   import Navbar from "$lib/components/marketing/navbar.svelte";
@@ -59,7 +58,6 @@
   <Faq />
   <FinalDecision />
 </main>
-<Footer />
 
 <style>
   :global([data-reveal]) {

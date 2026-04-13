@@ -1,6 +1,3 @@
-<script lang="ts">
-  import Footer from "$lib/components/marketing/footer.svelte";
-</script>
 <svelte:head>
   <title>Terms of Service | Enock</title>
   <meta
@@ -334,4 +331,3 @@
     </div>
   </div>
 </main>
-<Footer />

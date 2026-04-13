@@ -1,6 +1,3 @@
-<script>
-  import Footer from "$lib/components/marketing/footer.svelte";
-</script>
 <svelte:head>
   <title>Privacy Policy | Enock</title>
   <meta
@@ -268,4 +265,3 @@
     </div>
   </div>
 </main>
-<Footer />

@@ -3,6 +3,11 @@
     name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
   >
+  <meta name="theme-color" content="#020f0b">
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
   <title>Waitlist | Enock</title>
 </svelte:head>
 
@@ -16,6 +21,12 @@
 </main>
 
 <style>
+  :global(html),
+  :global(body),
+  main {
+    background: #020f0b;
+  }
+
   .request-frame {
     position: fixed;
     inset: 0;

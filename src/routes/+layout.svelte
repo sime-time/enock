@@ -3,6 +3,7 @@
   import "@fontsource-variable/plus-jakarta-sans";
   import "@fontsource-variable/onest";
   import "../app.css";
+  import Footer from "$lib/components/marketing/footer.svelte";
 
   let { children } = $props();
 </script>
@@ -17,3 +18,4 @@
 </svelte:head>
 
 {@render children()}
+<Footer />
