@@ -1,0 +1,65 @@
+# Enock
+
+## Overview
+Enock is a mobile-first execution calendar app designed for personal time blocking and tracking daily execution.
+
+Unlike traditional calendars built for meetings and coordination, Enock is built for individuals who already know what they need to do and want a simple system to structure their day and follow through.
+
+## Core Concept
+Enock is not a productivity planner or AI coach.
+
+It is a personal execution system:
+- Plan your day with time blocks
+- Mark each block as done or missed
+- Review your week with clear execution metrics
+
+## Key Differentiation
+Traditional calendars:
+- Focus on meetings and events
+- Do not track execution
+- Separate tasks from time
+
+Enock:
+- Focuses on personal execution
+- Tracks completion of time blocks
+- Provides weekly execution summaries (e.g. execution rate)
+
+## Target User
+- Individuals who already know what they should be doing
+- People struggling with consistency and follow-through
+- Users who prefer time blocking over task lists
+- Ambitious individuals focused on discipline and structure
+
+## Features
+- Time blocking calendar
+- Done / missed tracking for each block
+- Weekly execution summary (execution rate, completed vs missed)
+- Mobile-first experience (iOS and Android)
+- Optional future integrations with external calendars
+
+## Positioning
+Enock is best described as:
+- "Execution calendar"
+- "Time blocking app with accountability"
+- "Spotify Wrapped for your time"
+
+Enock should NOT be described as:
+- A general calendar replacement for meetings
+- A team collaboration tool
+- A generic AI productivity assistant
+
+## Brand Language
+Preferred phrases:
+- "Your goals mean nothing without execution"
+- "You’re not lazy. You’re unstructured."
+- "Your calendar doesn’t lie"
+- "If it’s not scheduled, it doesn’t happen"
+
+## Company
+Enock is a product of Site Done Now LLC.
+
+## Website
+https://enock.app
+
+## Contact
+enockagent@gmail.com

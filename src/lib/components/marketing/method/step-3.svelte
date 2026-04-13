@@ -1,15 +1,8 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
-  import CircleArrowRight from "@lucide/svelte/icons/circle-arrow-right";
   import WeeklyReviewCarousel from "$lib/components/marketing/weekly-review-carousel.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
-
-  let bullets = [
-    "See what you actually followed.",
-    "See what you skipped.",
-    "See where your time leaked.",
-  ];
 </script>
 
 <section id="method-step-3" class="relative overflow-hidden py-16 sm:py-20">
@@ -28,28 +21,27 @@
       <p
         class="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
       >
-        Step - 03
+        Step &mdash; 03
       </p>
 
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Measure your execution
+        <span class="italic">Spotify Wrapped</span>{"\u00A0"}
+        <span>for your time</span>
       </h3>
 
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        You’re not guessing anymore. You can see what you followed. What you
-        skipped. Where your time leaked.
+        You’re not guessing anymore.
       </p>
 
-      <ul class="mt-6 space-y-3">
-        {#each bullets as bullet}
-          <li class="flex items-start gap-3 text-muted-foreground">
-            <CircleArrowRight class="mt-0.5 size-5 shrink-0 text-primary" />
-            <span>{bullet}</span>
-          </li>
-        {/each}
-      </ul>
+      <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+        At the end of the week, you can see exactly what happened.
+      </p>
+
+      <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+        What you said you would do vs. what you actually did.
+      </p>
 
       <Button
         href={PRIMARY_CTA_HREF}
