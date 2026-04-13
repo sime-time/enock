@@ -49,19 +49,17 @@
   });
 </script>
 
-<div class="bg-background text-foreground">
-  <Navbar />
-  <main class="min-h-screen">
-    <Hero />
-    <Problem />
-    <Diagnosis />
-    <Method />
-    <Comparison />
-    <Faq />
-    <FinalDecision />
-  </main>
-  <Footer />
-</div>
+<Navbar />
+<main class="min-h-screen">
+  <Hero />
+  <Problem />
+  <Diagnosis />
+  <Method />
+  <Comparison />
+  <Faq />
+  <FinalDecision />
+</main>
+<Footer />
 
 <style>
   :global([data-reveal]) {

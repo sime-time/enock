@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
   import logo from "$lib/assets/enock-logo.svg";
 </script>
 
@@ -23,20 +22,17 @@
       class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground"
     >
       <a
-        href="https://instagram.com"
+        href="https://instagram.com/enock.app/"
         target="_blank"
         rel="noreferrer"
         class="inline-flex items-center gap-2 transition-colors hover:text-foreground"
       >
-        <ArrowUpRightIcon class="size-4" />
         Instagram
       </a>
       <a href="/privacy-policy" class="transition-colors hover:text-foreground"
         >Privacy Policy</a
       >
-      <a
-        href="/terms-of-service"
-        class="transition-colors hover:text-foreground"
+      <a href="/terms" class="transition-colors hover:text-foreground"
         >Terms of Service</a
       >
     </div>

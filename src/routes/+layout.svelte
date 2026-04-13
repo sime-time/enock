@@ -7,6 +7,13 @@
   let { children } = $props();
 </script>
 
-<svelte:head> <link rel="icon" href={logo}> </svelte:head>
+<svelte:head>
+  <title>Enock</title>
+  <meta
+    name="description"
+    content="Enock is a personal productivity app that helps you plan time blocks, track execution, and turn your schedule into consistent daily progress."
+  >
+  <link rel="icon" href={logo}>
+</svelte:head>
 
 {@render children()}
