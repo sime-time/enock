@@ -1,6 +1,7 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
   import { Button } from "$lib/components/ui/button";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 </script>
 
 <section
@@ -41,7 +42,7 @@
 
     <div class="mt-10" data-reveal style="--reveal-delay: 240ms">
       <Button
-        href="/auth/login"
+        href={PRIMARY_CTA_HREF}
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
       >

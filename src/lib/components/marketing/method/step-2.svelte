@@ -4,6 +4,7 @@
   import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
   import Button from "$lib/components/ui/button/button.svelte";
   import Checkbox from "$lib/components/ui/checkbox/checkbox.svelte";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 
   const timeLabels = [
     "9 AM",
@@ -142,7 +143,7 @@
       </ul>
 
       <Button
-        href="/auth/login"
+        href={PRIMARY_CTA_HREF}
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >

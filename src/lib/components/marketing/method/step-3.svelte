@@ -3,6 +3,7 @@
   import CircleArrowRight from "@lucide/svelte/icons/circle-arrow-right";
   import WeeklyReviewCarousel from "$lib/components/marketing/weekly-review-carousel.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 
   let bullets = [
     "See what you actually followed.",
@@ -46,7 +47,7 @@
       </ul>
 
       <Button
-        href="/auth/login"
+        href={PRIMARY_CTA_HREF}
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >

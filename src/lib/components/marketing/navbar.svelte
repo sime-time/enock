@@ -4,13 +4,14 @@
   import Button from "$lib/components/ui/button/button.svelte";
   import * as Nav from "$lib/components/ui/navigation-menu/index";
   import * as Sheet from "$lib/components/ui/sheet/index";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
   import { IsMobile } from "$lib/hooks/is-mobile.svelte";
   import { scrollToSection } from "$lib/utils/smooth-scroll";
 
   const isMobile = new IsMobile();
 
   const navItems = [
-    { title: "Home", href: "/#" },
+    { title: "Home", href: "/" },
     { title: "Problem", href: "#problem" },
     {
       title: "Solution",
@@ -52,14 +53,14 @@
       {/each}
     </Nav.List>
     <Button
-      href="/waitlist"
+      href={PRIMARY_CTA_HREF}
       class="transition-transform duration-200 hover:-translate-y-0.5"
       >Join Waitlist</Button
     >
   {:else}
     <Nav.List class="flex gap-4">
       <Button
-        href="/waitlist"
+        href={PRIMARY_CTA_HREF}
         class="transition-transform duration-200 hover:-translate-y-0.5"
         >Join Waitlist</Button
       >
@@ -98,7 +99,7 @@
                   <span>{item.title}</span>
                 </Button>
               {/each}
-              <Button href="/waitlist">Join Waitlist</Button>
+              <Button href={PRIMARY_CTA_HREF}>Join Waitlist</Button>
             </div>
           </section>
         </Sheet.Content>

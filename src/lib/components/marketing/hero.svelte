@@ -3,6 +3,7 @@
   import CircleCheckIcon from "@lucide/svelte/icons/circle-check";
   import { Badge } from "$lib/components/ui/badge";
   import { Button } from "$lib/components/ui/button";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
   import { scrollToSection } from "$lib/utils/smooth-scroll";
 </script>
 
@@ -93,7 +94,7 @@
           class="mt-10 flex flex-wrap items-center gap-4"
         >
           <Button
-            href="/auth/login"
+            href={PRIMARY_CTA_HREF}
             size="lg"
             class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
           >

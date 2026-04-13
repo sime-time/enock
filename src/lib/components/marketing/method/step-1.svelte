@@ -1,6 +1,7 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
   import Button from "$lib/components/ui/button/button.svelte";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 </script>
 
 <section id="method-step-1" class="relative overflow-hidden py-16 sm:py-20">
@@ -44,7 +45,7 @@
         work, training, admin, spirituality, or anything else that matters.
       </p>
       <Button
-        href="/auth/login"
+        href={PRIMARY_CTA_HREF}
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >

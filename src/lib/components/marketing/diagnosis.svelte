@@ -2,6 +2,7 @@
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
   import { Badge } from "$lib/components/ui/badge/index";
   import Button from "$lib/components/ui/button/button.svelte";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 
   const lines = [
     "Most people know what they should do.",
@@ -83,7 +84,7 @@
           {/each}
         </div>
         <Button
-          href="/auth/login"
+          href={PRIMARY_CTA_HREF}
           size="lg"
           class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
           data-reveal

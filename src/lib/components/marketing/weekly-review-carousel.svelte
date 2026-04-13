@@ -3,6 +3,7 @@
   import Button from "$lib/components/ui/button/button.svelte";
   import type { CarouselAPI } from "$lib/components/ui/carousel/context.js";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
+  import { PRIMARY_CTA_HREF } from "$lib/config/primary-cta";
 
   type StorySlide = {
     label: string;
@@ -161,7 +162,7 @@
 
             {#if i === slides.length - 1}
               <Button
-                href="/auth/login"
+                href={PRIMARY_CTA_HREF}
                 size="lg"
                 class="relative z-20 mt-4 h-11 w-fit rounded-xl px-5 text-sm font-semibold"
               >
