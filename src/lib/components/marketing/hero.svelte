@@ -70,7 +70,7 @@
         <p
           data-reveal
           style="--reveal-delay: 190ms"
-          class="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground"
+          class="mt-8 max-w-lg text-lg leading-relaxed text-muted-foreground"
         >
           Enock is a personal calendar built for daily time blocking and
           exposing the gap between intention and execution.
@@ -82,7 +82,7 @@
           class="mt-4 flex items-center gap-2.5"
         >
           <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-muted-foreground italic">
+          <p class="text-lg font-medium text-muted-foreground italic">
             Not for meetings. Not for teams. Built for personal execution.
           </p>
         </div>
@@ -99,14 +99,6 @@
           >
             Join the Waitlist
             <ArrowRight />
-          </Button>
-          <Button
-            variant="outline"
-            onclick={(event) => scrollToSection("#method", event)}
-            size="lg"
-            class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
-          >
-            See How It Works
           </Button>
         </div>
       </div>

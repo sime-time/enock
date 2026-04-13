@@ -7,8 +7,7 @@
   const lines = [
     "Most people know what they should do.",
     "But they've never used a system that turns intention into scheduled action.",
-    "So they keep everything in their head.",
-    'They rely on "feeling ready".',
+    "They keep everything in their head.",
     "Then get distracted by social media.",
     "Most calendars are built for meetings, not goals.",
   ];
