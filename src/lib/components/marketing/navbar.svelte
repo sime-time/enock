@@ -9,6 +9,12 @@
   import { scrollToSection } from "$lib/utils/smooth-scroll";
 
   const isMobile = new IsMobile();
+  let isSheetOpen = $state(false);
+
+  const handleMobileNavClick = (href: string, event: MouseEvent) => {
+    scrollToSection(href, event);
+    isSheetOpen = false;
+  };
 
   const navItems = [
     { title: "Problem", href: "#problem" },
@@ -64,7 +70,7 @@
         class="transition-transform duration-200 hover:-translate-y-0.5"
         >Join Waitlist</Button
       >
-      <Sheet.Root>
+      <Sheet.Root bind:open={isSheetOpen}>
         <Sheet.Trigger>
           {#snippet child({ props })}
             <Button
@@ -94,7 +100,7 @@
                 <Button
                   href={item.href}
                   variant="outline"
-                  onclick={(event) => scrollToSection(item.href, event)}
+                  onclick={(event) => handleMobileNavClick(item.href, event)}
                 >
                   <span>{item.title}</span>
                 </Button>
