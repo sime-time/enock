@@ -23,7 +23,7 @@
         style="--reveal-delay: 120ms"
         class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl"
       >
-        Turn goals into scheduled <span class="text-primary">execution.</span>
+        A calendar built for <span class="text-primary">execution.</span>
       </h2>
 
       <p
@@ -31,7 +31,9 @@
         style="--reveal-delay: 190ms"
         class="mt-4 text-base font-medium text-muted-foreground sm:text-lg"
       >
-        Here's how it works.
+        Traditional calendars are built around events, meetings, and logistics.
+        <br>
+        Enock is built around personal execution.
       </p>
     </div>
   </div>

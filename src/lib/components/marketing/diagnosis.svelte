@@ -4,12 +4,12 @@
   import Button from "$lib/components/ui/button/button.svelte";
 
   const lines = [
-    "You don't fail because you lack goals.",
-    "You fail because your goals are never scheduled.",
+    "Most people know what they should do.",
+    "But they don't have a system that turns intention into scheduled action.",
     "Ideas don't create progress.",
-    "Time blocks do.",
-    "Most people plan in their head.",
-    "Enock plans in their calendar.",
+    "Your goals live in your head.",
+    "You get distracted by social media.",
+    "And most calendars are built for meetings, not execution.",
   ];
 </script>
 

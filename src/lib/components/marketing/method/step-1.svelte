@@ -36,13 +36,12 @@
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Target your Goals
+        Target your goals
       </h3>
 
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Identify what success actually looks like. Choose areas that matter and
-        define them with intention. Career. Fitness. Relationships. Whatever you
-        care about.
+        Categorize your time blocks for each specific goal / area in your life:
+        work, training, admin, spirituality, or anything else that matters.
       </p>
       <Button
         href="/auth/login"

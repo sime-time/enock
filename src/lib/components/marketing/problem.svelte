@@ -11,17 +11,13 @@
       icon: CalendarClockIcon,
     },
     {
-      sentence:
-        "If you repeated this week for 3 years, where would you end up?",
-      icon: TimerResetIcon,
-    },
-    {
       sentence: "Does your calendar reflect your ambition?",
       icon: TrophyIcon,
     },
     {
-      sentence: "Or your distractions?",
-      icon: BellOffIcon,
+      sentence:
+        "If you repeated this week for 3 years, where would you end up?",
+      icon: TimerResetIcon,
     },
   ];
 </script>

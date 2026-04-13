@@ -15,6 +15,12 @@
     "3 PM",
   ];
 
+  let bullets = [
+    "Time blocks, not task lists.",
+    "Mark each block as done or missed.",
+    "A weekly review that exposes how you actually lived.",
+  ];
+
   let pulseEventId = $state<number | null>(null);
 
   let events = $state([
@@ -118,38 +124,29 @@
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Structure the Week
+        Structure the day
       </h3>
 
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Enock builds a focused 7-day plan inside your calendar.
+        Each block can be marked complete or missed, so your calendar becomes a
+        record of action, not just intention.
       </p>
 
       <ul class="mt-6 space-y-3">
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Keyboard shortcuts for quick calendar actions</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Clear separation between work, training, and recovery</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>No empty time - everything is intentional</span>
-        </li>
-        <li class="flex items-start gap-3 text-muted-foreground">
-          <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span>Enock knows how you spend your time</span>
-        </li>
+        {#each bullets as bullet}
+          <li class="flex items-start gap-3 text-muted-foreground">
+            <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
+            <span>{bullet}</span>
+          </li>
+        {/each}
       </ul>
+
       <Button
         href="/auth/login"
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >
-        Build Your Week
-        <ArrowRight />
+        Build Your Day <ArrowRight />
       </Button>
     </div>
     <div

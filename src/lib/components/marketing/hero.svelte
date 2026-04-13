@@ -52,7 +52,7 @@
           class="mb-8 gap-2 rounded-full border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary"
         >
           <span class="size-2 rounded-full bg-primary"></span>
-          AI Strategic Advisor
+          Execution Calendar
         </Badge>
 
         <h1
@@ -71,7 +71,9 @@
           style="--reveal-delay: 190ms"
           class="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground"
         >
-          Enock builds structured plans towards your goals into your calendar.
+          Enock is a personal calendar built for time blocking your day,
+          checking off completed blocks, and seeing whether your week reflects
+          your ambition.
         </p>
 
         <div
@@ -80,8 +82,8 @@
           class="mt-4 flex items-center gap-2.5"
         >
           <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-muted-foreground">
-            Connect your calendar. Get a 7-day plan. Execute.
+          <p class="text-sm font-medium text-muted-foreground italic">
+            Not for meetings. Not for teams. For personal execution.
           </p>
         </div>
 
@@ -95,7 +97,7 @@
             size="lg"
             class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
           >
-            Get Your 7-Day Plan
+            Join the Waitlist
             <ArrowRight />
           </Button>
           <Button

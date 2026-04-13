@@ -45,7 +45,7 @@
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold"
       >
-        Start Your 7-Day Execution Plan
+        Join the Waitlist
         <ArrowRight class="size-4" />
       </Button>
     </div>

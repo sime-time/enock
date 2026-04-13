@@ -1,6 +1,13 @@
 <script lang="ts">
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
+  import CircleArrowRight from "@lucide/svelte/icons/circle-arrow-right";
   import Button from "$lib/components/ui/button/button.svelte";
+
+  let bullets = [
+    "See what you actually followed.",
+    "See what you skipped.",
+    "See where your time leaked.",
+  ];
 </script>
 
 <section id="method-step-3" class="relative overflow-hidden py-16 sm:py-20">
@@ -21,14 +28,17 @@
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Talk to Enock
+        Measure your execution
       </h3>
 
-      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-        Talk through your plan, refine your thinking, and adjust your next move.
-        Enock sees your goals and your calendar, so every response is grounded
-        in reality.
-      </p>
+      <ul class="mt-6 space-y-3">
+        {#each bullets as bullet}
+          <li class="flex items-start gap-3 text-muted-foreground">
+            <CircleArrowRight class="mt-0.5 size-5 shrink-0 text-primary" />
+            <span>{bullet}</span>
+          </li>
+        {/each}
+      </ul>
 
       <Button
         href="/auth/login"
