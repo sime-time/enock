@@ -83,7 +83,7 @@
         >
           <CircleCheckIcon class="mt-0.5 size-5 shrink-0 text-primary" />
           <p class="text-sm font-medium text-muted-foreground italic">
-            Not for meetings. Not for teams. For personal execution.
+            Not for meetings. Not for teams. Built for personal execution.
           </p>
         </div>
 
