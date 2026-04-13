@@ -4,21 +4,44 @@
 
   const faqs = [
     {
-      question: "What if Enock builds a plan that doesn't fit my schedule?",
-      answer: "You can adjust it yourself or ask Enock to.",
-    },
-    {
-      question: "Can I use Enock on mobile?",
+      question: "How is Enock different from Google Calendar?",
       answer:
-        "Yes, you can save the app to your homescreen for a mobile app experience.",
+        "Google Calendar is built for meetings and events. Enock is built for personal execution. You time block your day, mark each block as done or missed, and see how you actually spent your week.",
     },
     {
-      question: "I already use Google Calendar.",
-      answer: "Good. Enock makes it intentional.",
+      question: "Do I need to connect my calendar?",
+      answer:
+        "You don't need to. Enock works on its own. You can optionally connect your existing calendar later, but it’s designed to be a clean system just for execution.",
     },
     {
-      question: "I don't have anything on my calendar.",
-      answer: "Even better. We build from zero.",
+      question: "What if my schedule changes during the day?",
+      answer:
+        "It will. You can quickly adjust your blocks. The goal isn’t perfection; it’s visibility. Enock shows what you planned vs what actually happened.",
+    },
+    {
+      question: "Is Enock mobile-first?",
+      answer:
+        "Yes. It’s designed to be used on your phone throughout the day, not just planned on a desktop and forgotten.",
+    },
+    {
+      question: "Is it for iPhone or Android?",
+      answer:
+        "Both! Enock will be released on both the Apple and Google Play app stores.",
+    },
+    {
+      question: "What if I already know what I need to do?",
+      answer:
+        "That’s exactly who Enock is for. It’s for structuring your day and tracking whether you actually did it.",
+    },
+    {
+      question: "Is this just another to-do list?",
+      answer:
+        "No. To-do lists track intention. Enock tracks time. If it’s not scheduled, it doesn’t exist.",
+    },
+    {
+      question: "What happens at the end of the week?",
+      answer:
+        "You see the truth. How many blocks you completed, what you missed, and which days you showed up. No guessing.",
     },
   ];
 </script>

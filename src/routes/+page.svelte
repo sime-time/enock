@@ -7,7 +7,6 @@
   import Hero from "$lib/components/marketing/hero.svelte";
   import Method from "$lib/components/marketing/method/index.svelte";
   import Navbar from "$lib/components/marketing/navbar.svelte";
-  import Pricing from "$lib/components/marketing/pricing.svelte";
   import Problem from "$lib/components/marketing/problem.svelte";
 
   onMount(() => {
@@ -56,7 +55,6 @@
     <Problem />
     <Diagnosis />
     <Method />
-    <Pricing />
     <Faq />
     <FinalDecision />
   </main>

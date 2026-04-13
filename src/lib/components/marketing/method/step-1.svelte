@@ -48,7 +48,7 @@
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >
-        Define Your Goals
+        Define your goals
         <ArrowRight />
       </Button>
     </div>

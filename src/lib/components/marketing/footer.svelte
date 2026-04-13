@@ -1,5 +1,5 @@
 <script lang="ts">
-  import InstagramIcon from "@lucide/svelte/icons/instagram";
+  import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
   import logo from "$lib/assets/enock-logo.svg";
 </script>
 
@@ -28,7 +28,7 @@
         rel="noreferrer"
         class="inline-flex items-center gap-2 transition-colors hover:text-foreground"
       >
-        <InstagramIcon class="size-4" />
+        <ArrowUpRightIcon class="size-4" />
         Instagram
       </a>
       <a href="/privacy-policy" class="transition-colors hover:text-foreground"

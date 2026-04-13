@@ -89,8 +89,7 @@
           data-reveal
           style="--reveal-delay: 420ms"
         >
-          Plan Your Goals Today
-          <ArrowRight />
+          Execute your plans <ArrowRight />
         </Button>
       </div>
     </div>

@@ -124,7 +124,7 @@
       <h3
         class="font-heading text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl"
       >
-        Structure the day
+        Structure your day
       </h3>
 
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
@@ -146,7 +146,7 @@
         size="lg"
         class="hover-rise h-12 rounded-xl px-8 text-base font-semibold mt-8"
       >
-        Build Your Day <ArrowRight />
+        Time block your life <ArrowRight />
       </Button>
     </div>
     <div

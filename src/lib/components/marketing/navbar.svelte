@@ -10,13 +10,11 @@
   const isMobile = new IsMobile();
 
   const navItems = [
+    { title: "Home", href: "/#" },
+    { title: "Problem", href: "#problem" },
     {
-      title: "Method",
+      title: "Solution",
       href: "#method",
-    },
-    {
-      title: "Pricing",
-      href: "#pricing",
     },
     {
       title: "FAQ",
@@ -54,16 +52,16 @@
       {/each}
     </Nav.List>
     <Button
-      href="/auth/login"
+      href="/waitlist"
       class="transition-transform duration-200 hover:-translate-y-0.5"
-      >Sign In</Button
+      >Join Waitlist</Button
     >
   {:else}
     <Nav.List class="flex gap-4">
       <Button
-        href="/auth/login"
+        href="/waitlist"
         class="transition-transform duration-200 hover:-translate-y-0.5"
-        >Sign In</Button
+        >Join Waitlist</Button
       >
       <Sheet.Root>
         <Sheet.Trigger>
@@ -100,7 +98,7 @@
                   <span>{item.title}</span>
                 </Button>
               {/each}
-              <Button href="/auth/login">Sign In</Button>
+              <Button href="/waitlist">Join Waitlist</Button>
             </div>
           </section>
         </Sheet.Content>
