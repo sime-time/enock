@@ -15,8 +15,7 @@
       icon: TimerResetIcon,
     },
     {
-      sentence:
-        "Does your calendar reflect your ambitions, or your distractions?",
+      sentence: "Does your calendar reflect your ambitions... or distractions?",
       icon: TrophyIcon,
     },
   ];
@@ -66,10 +65,6 @@
       style="--reveal-delay: 120ms"
       class="font-heading max-w-3xl text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl"
     >
-      You don't have a <span class="text-muted-foreground">motivation</span>
-      problem
-      <br>
-      <br>
       You've been relying on
       <span class="text-muted-foreground">emotion</span>
       instead of
